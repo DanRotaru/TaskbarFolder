@@ -62,7 +62,7 @@ namespace TaskbarFolder
                 ini.Write("theme", "dark");
             }
 
-            String theme = ini.Read("theme");
+            string theme = ini.Read("theme");
 
             if (theme == "light") lightTheme = true;
             if (lightTheme) BackColor = Color.FromArgb(249, 249, 249);
@@ -71,7 +71,7 @@ namespace TaskbarFolder
             //timer.Tick += OnTimer;
             //timer.Start();
 
-            String save_location = ini.Read("save_location");
+            string save_location = ini.Read("save_location");
 
             if ((ini.KeyExists("save_location") && save_location == "true") && ini.KeyExists("location_x") && ini.KeyExists("location_y"))
             {
@@ -92,12 +92,14 @@ namespace TaskbarFolder
             string[] apps = @ini.Read("apps").Split(';');
             
             int n = 0;
-            foreach (String app in apps)
+            foreach (string app in apps)
             {
-                Console.WriteLine(n);
-                Console.WriteLine(app);
-                createApp(app);
-                n++;
+                if (!app.Equals(""))
+                {
+                    createApp(app);
+                    n++;
+                }
+                
             }
             this.Size = new Size((panelLocation[0] * n) + 15, formHeight);
             this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 10, 10));
@@ -113,7 +115,7 @@ namespace TaskbarFolder
             }
         }*/
 
-        public void createApp(String app = "")
+        public void createApp(string app = "")
         {
             if (File.Exists(app))
             {
@@ -201,7 +203,7 @@ namespace TaskbarFolder
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            String save_location = ini.Read("save_location");
+            string save_location = ini.Read("save_location");
             if (ini.KeyExists("save_location") && save_location == "true")
             {
                 Point p = new Point(this.Location.X, this.Location.Y);
@@ -215,7 +217,7 @@ namespace TaskbarFolder
             Panel p = sender as Panel;
             p.BackColor = Color.Transparent;
 
-            String path = p.Tag.ToString();
+            string path = p.Tag.ToString();
 
             if (File.Exists(path))
             {
