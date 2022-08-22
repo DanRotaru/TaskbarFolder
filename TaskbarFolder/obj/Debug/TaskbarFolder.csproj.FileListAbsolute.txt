@@ -20,3 +20,4 @@ C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.c
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.CoreCompileInputs.cache
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.exe
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.pdb
+C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.Form2.resources

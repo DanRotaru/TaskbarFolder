@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TaskbarFolder
@@ -34,38 +28,80 @@ namespace TaskbarFolder
         // Dark/light theme
         public bool lightTheme = false;
 
-
-        public Form1()
-        {
-            
-            InitializeComponent();
-            //timer.Interval = 10;
-            //timer.Tick += OnTimer;
-            //timer.Start();
-
-            //this.TransparencyKey = (BackColor);
-            //pictureBox3.BorderStyle = BorderStyle.None;
-
-            this.Size = new Size(355, 100);
-
-            if (lightTheme)
-            {
-                BackColor = Color.FromArgb(249, 249, 249);
-            }
-            
-
-
-            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 10, 10));
-
-            Rectangle workingArea = Screen.GetWorkingArea(this);
-            this.Location = new Point(Cursor.Position.X - (Size.Width / 2), workingArea.Bottom - Size.Height - 10);
-        }
+        // Form size
+        public int formHeight = 100;
 
         public int[] panelSize = { 80, 80 },
                 panelLocation = { 85, 10 },
                 imageLocation = { 22, 22 },
                 imageSize = { 36, 36 };
 
+        public int x = 10;
+
+        // Draggable
+        private bool mouseDown;
+        private Point lastLocation;
+
+        public IniFile ini = new IniFile();
+
+        public Form1()
+        {
+            
+            InitializeComponent();
+
+            // If is not apps
+            if (!ini.KeyExists("apps"))
+            {
+                var form2 = new Form2();
+                form2.Show();
+            }
+
+            // Initial theme
+            if (!ini.KeyExists("theme"))
+            {
+                ini.Write("theme", "dark");
+            }
+
+            String theme = ini.Read("theme");
+
+            if (theme == "light") lightTheme = true;
+            if (lightTheme) BackColor = Color.FromArgb(249, 249, 249);
+
+            //timer.Interval = 10;
+            //timer.Tick += OnTimer;
+            //timer.Start();
+
+            String save_location = ini.Read("save_location");
+
+            if ((ini.KeyExists("save_location") && save_location == "true") && ini.KeyExists("location_x") && ini.KeyExists("location_y"))
+            {
+                
+                int x = Convert.ToInt16(ini.Read("location_x"));
+                int y = Convert.ToInt16(ini.Read("location_y"));
+                this.Location = new Point(x, y);
+                MessageBox.Show(x.ToString() + " " + y.ToString());
+                Console.Write(x);
+                Console.Write(y);
+            }
+            else
+            {
+                Rectangle workingArea = Screen.GetWorkingArea(this);
+                this.Location = new Point(Cursor.Position.X - (Size.Width / 2), workingArea.Bottom - Size.Height - 10);
+            }
+
+            string[] apps = @ini.Read("apps").Split(';');
+            
+            int n = 0;
+            foreach (String app in apps)
+            {
+                Console.WriteLine(n);
+                Console.WriteLine(app);
+                createApp(app);
+                n++;
+            }
+            this.Size = new Size((panelLocation[0] * n) + 15, formHeight);
+            this.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, this.Width, this.Height, 10, 10));
+        }
         /*private void OnTimer(Object sender, EventArgs e)
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
@@ -77,29 +113,26 @@ namespace TaskbarFolder
             }
         }*/
 
-        public void createApp(String icon = "", String path = "", String label = "", Boolean showLabels = false)
+        public void createApp(String app = "")
         {
-
-            if (showLabels)
+            if (File.Exists(app))
             {
-                panelLocation[0] = 95;
-            }
+                //String icon = "", String path = "", String label = "", Boolean showLabels = false
+                Boolean showLabels = false;
 
-            AppN a1 = new AppN();
+                if (showLabels)
+                {
+                    panelLocation[0] = 95;
+                }
 
-            int x = 10;
-            for (int i = 1; i <= 4; i++)
-            {
-                x = x + panelLocation[0];
-                if (i == 1) x = 10;
 
                 Panel p = new Panel();
                 p.Size = new Size(panelSize[0], panelSize[1]);
                 p.Location = new Point(x, panelLocation[1]);
                 p.Cursor = Cursors.Hand;
-                p.Name = "isPanel-" + i;
+                p.Name = "isPanel-" + 2;
                 //p.Tag = path;
-                p.Tag = @"D:\Software\Notepad3\Notepad3.exe";
+                p.Tag = @app;
 
                 // Display as list view
                 //p.Dock = DockStyle.Bottom;
@@ -107,7 +140,7 @@ namespace TaskbarFolder
                 this.Controls.Add(p);
 
                 PictureBox img = new PictureBox();
-                Icon ico = Icon.ExtractAssociatedIcon(@"D:\Software\Notepad3\Notepad3.exe");
+                Icon ico = Icon.ExtractAssociatedIcon(@app);
                 img.Image = ico.ToBitmap();
                 img.Location = new Point(imageLocation[0], imageLocation[1]);
                 img.Enabled = false;
@@ -115,10 +148,12 @@ namespace TaskbarFolder
                 img.SizeMode = PictureBoxSizeMode.StretchImage;
                 p.Controls.Add(img);
 
-                if(showLabels)
+                x += panelLocation[0];
+
+                if (showLabels)
                 {
                     Label l = new Label();
-                    l.Text = label;
+                    //l.Text = label;
                     l.ForeColor = Color.White;
                     l.Enabled = false;
                     l.Location = new Point(0, 50);
@@ -130,9 +165,6 @@ namespace TaskbarFolder
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            createApp();
-
             foreach (Control c in this.Controls)
             {
                 if (c is Panel)
@@ -142,6 +174,39 @@ namespace TaskbarFolder
                     c.MouseLeave += panelMouseLeave;
                     c.Click += clickEvent;
                 }
+            }
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void Form1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            String save_location = ini.Read("save_location");
+            if (ini.KeyExists("save_location") && save_location == "true")
+            {
+                Point p = new Point(this.Location.X, this.Location.Y);
+                ini.Write("location_x", p.X.ToString());
+                ini.Write("location_y", p.Y.ToString());
             }
         }
 
@@ -155,7 +220,7 @@ namespace TaskbarFolder
             if (File.Exists(path))
             {
                 System.Diagnostics.Process.Start(path);
-                System.Windows.Forms.Application.Exit();
+                Application.Exit();
             } 
             else
             {
@@ -191,18 +256,8 @@ namespace TaskbarFolder
             
         }
     }
-    public class AppN
-    {
-        public int id;
-        public String name, icon, path;
 
-        public AppN()
-        {
-
-        }
-    }
-
-    class IniFile
+    public class IniFile
     {
         string Path;
         string EXE = Assembly.GetExecutingAssembly().GetName().Name;

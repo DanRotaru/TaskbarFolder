@@ -49,6 +49,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(110, 100);
             this.panel1.TabIndex = 0;
+            this.panel1.Visible = false;
             // 
             // pictureBox1
             // 
@@ -83,6 +84,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(80, 80);
             this.panel2.TabIndex = 2;
+            this.panel2.Visible = false;
             // 
             // pictureBox2
             // 
@@ -102,7 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(355, 180);
+            this.ClientSize = new System.Drawing.Size(350, 100);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -111,7 +113,11 @@
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "app";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
