@@ -42,19 +42,17 @@ namespace TaskbarFolder
         private bool mouseDown;
         private Point lastLocation;
 
-        public IniFile ini = new IniFile();
+        public IniFile ini = new IniFile("TaskbarFolder.ini");
 
         public Form1()
         {
             
             InitializeComponent();
 
-            // System.Diagnostics.Process.Start("http://google.com");
-
             // If is not apps
             if (!ini.KeyExists("apps"))
             {
-                var form2 = new Form2();
+                Form2 form2 = new Form2();
                 form2.Show();
             }
 
