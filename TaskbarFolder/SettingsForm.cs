@@ -10,64 +10,16 @@ namespace TaskbarFolder
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
 
-        public IniFile ini = new IniFile("TaskbarFolder.ini");
+        public static IniFile ini = new IniFile("TaskbarFolder.ini");
 
         private bool fromForm1 = true;
+        public static bool lightTheme = ini.Read("theme").Equals("light");
 
         public SettingsForm()
         {
             InitializeComponent();
-
-            if (Form1.lightTheme)
-            {
-                themeLight.Checked = true;
-                themeDark.Checked = false;
-
-                //BackColor = Color.FromArgb(242, 243, 247);
-                BackColor = Color.FromArgb(249, 249, 249);
-
-                themeIcon.Image = Properties.Resources.themeLight;
-                minimalViewIcon.Image = Properties.Resources.minimalViewLight;
-                onTopIcon.Image = Properties.Resources.ontopLight;
-                locationIcon.Image = Properties.Resources.locationLight;
-            }
-
-            foreach (Control c in Controls)
-            {
-                if (c is Panel)
-                {
-                    RoundCorners(c);
-
-                    
-                    if (Form1.lightTheme)
-                    {
-                        c.BackColor = Color.FromArgb(230, 230, 230);
-
-                        foreach (Control label in c.Controls)
-                        {
-                            if (label is Label || label is CheckBox || label is RadioButton)
-                            {
-                                label.ForeColor = Color.Black;
-                            }
-                            else if (label is TextBox || label is Panel)
-                            {
-                                if (label is Panel)
-                                    RoundCorners(label);
-
-                                //label.BackColor = Color.FromArgb(251, 251, 251);
-                                label.BackColor = Color.FromArgb(243, 243, 243);
-                                label.ForeColor = Color.Black;
-                            }
-                        }
-
-                    }
-                }
-                else if(c is Label)
-                {
-                    if (Form1.lightTheme)
-                        c.ForeColor = Color.Black;
-                }
-            }
+            
+            ChangeTheme(lightTheme);
 
             if (IsTrue(Form1.min))
             {
@@ -98,6 +50,81 @@ namespace TaskbarFolder
             RoundCorners(textBoxPadding1);
             RoundCorners(textBoxPadding2);
             RoundCorners(textBoxPadding3);
+        }
+
+        public void ChangeTheme(bool lightTheme)
+        {
+            if (lightTheme)
+            {
+                themeLight.Checked = true;
+                themeDark.Checked = false;
+
+                //BackColor = Color.FromArgb(242, 243, 247);
+                BackColor = Color.FromArgb(249, 249, 249);
+
+                themeIcon.Image = Properties.Resources.themeLight;
+                minimalViewIcon.Image = Properties.Resources.minimalViewLight;
+                onTopIcon.Image = Properties.Resources.ontopLight;
+                locationIcon.Image = Properties.Resources.locationLight;
+
+                ControlsForeach(Color.Black, Color.FromArgb(230, 230, 230), Color.FromArgb(249, 249, 249));
+                form_link.ForeColor = Color.Black;
+                Form1.lightTheme = true;
+            }
+
+            else
+            {
+                themeLight.Checked = false;
+                themeDark.Checked = true;
+
+                BackColor = Color.FromArgb(32, 32, 32);
+
+                themeIcon.Image = Properties.Resources.theme;
+                minimalViewIcon.Image = Properties.Resources.minimalView;
+                onTopIcon.Image = Properties.Resources.ontop;
+                locationIcon.Image = Properties.Resources.location;
+
+                ControlsForeach(Color.FromArgb(200, 200, 200), Color.FromArgb(43, 43, 43), Color.FromArgb(32, 32, 32));
+                form_link.ForeColor = Color.FromArgb(153, 235, 255);
+                Form1.lightTheme = false;
+            }
+
+            heart_icon.ForeColor = Color.Red;
+            
+        }
+
+        public void ControlsForeach(Color labelColor, Color panelColor, Color FormColor)
+        {
+            BackColor = FormColor;
+            foreach (Control c in Controls)
+            {
+                if (c is Panel)
+                {
+                    RoundCorners(c);
+
+                    c.BackColor = panelColor;
+
+                    foreach (Control label in c.Controls)
+                    {
+                        if (label is Label || label is CheckBox || label is RadioButton)
+                        {
+                            label.ForeColor = labelColor;
+                        }
+                        else if (label is TextBox || label is Panel)
+                        {
+                            if (label is Panel)
+                                RoundCorners(label);
+
+                            label.BackColor = FormColor;
+                            label.ForeColor = labelColor;
+                        }
+                    }
+                }
+                else if (c is Label)
+                {
+                    c.ForeColor = labelColor;
+                }
+            }
         }
 
         private void me_link_Click(object sender, EventArgs e)
@@ -193,6 +220,7 @@ namespace TaskbarFolder
             if (fromForm1) return;
 
             ini.Write("theme", "light");
+            ChangeTheme(true);
         }
 
         private void themeDark_Click(object sender, EventArgs e)
@@ -200,6 +228,7 @@ namespace TaskbarFolder
             if (fromForm1) return;
 
             ini.Write("theme", "dark");
+            ChangeTheme(false);
         }
 
         public bool IsTrue(string value)

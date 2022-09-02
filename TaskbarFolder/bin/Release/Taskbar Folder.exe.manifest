@@ -15,16 +15,16 @@
       </applicationRequestMinimum>
       <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
         <!--
-          Параметры манифеста UAC
-          Если нужно изменить уровень контроля учетных записей Windows, замените 
-          узел requestedExecutionLevel одним из следующих значений.
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-        Если нужно использовать виртуализацию файлов и реестра для обратной
-             совместимости, удалите узел requestedExecutionLevel.
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
     -->
         <requestedExecutionLevel level="asInvoker" uiAccess="false" />
       </requestedPrivileges>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Taskbar Folder.exe" size="593824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Taskbar Folder.exe" size="594336">
       <assemblyIdentity name="Taskbar Folder" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>evgNIYg1GFapMF2IhEgNY0AWlZiT7nUfGsXP6+GkOGQ=</dsig:DigestValue>
+        <dsig:DigestValue>xR0ykCCPTiLacmdaGXSRPSZFPSj3Sl+vMOaYS2TwWbg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -81,13 +81,13 @@
       <dsig:DigestValue>YCf+O1tUQBEHoRNOSk0W/2FIujhHGeevoTkBJ9HlVBc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Taskbar Folder.exe.config" size="231">
+  <file name="Taskbar Folder.exe.config" size="236">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>SHPvvgjEKBPN1KzUrd/KLZHz+hoagj5skwRTUEBg0Uo=</dsig:DigestValue>
+      <dsig:DigestValue>O0zITCCAMiinkJZsgiedceyV2U255ThvYrV6a1XXEJc=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

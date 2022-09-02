@@ -26,3 +26,20 @@ C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\bin\Debug\Taskbar Folder.
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\bin\Debug\Taskbar Folder.application
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\Taskbar Folder.exe.manifest
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\Taskbar Folder.application
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Debug\Taskbar Folder.exe.config
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Debug\Taskbar Folder.exe.manifest
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Debug\Taskbar Folder.application
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Debug\Taskbar Folder.exe
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Debug\Taskbar Folder.pdb
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.AssemblyReference.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.SuggestedBindingRedirects.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Form1.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Form2.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Properties.Resources.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.SettingsForm.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.GenerateResource.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.CoreCompileInputs.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\Taskbar Folder.exe.manifest
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\Taskbar Folder.application
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\Taskbar Folder.exe
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\Taskbar Folder.pdb

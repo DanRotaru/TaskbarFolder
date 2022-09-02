@@ -15,3 +15,20 @@ C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Release\Taskbar Folde
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Release\Taskbar Folder.application
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Release\Taskbar Folder.exe
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Release\Taskbar Folder.pdb
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Release\Taskbar Folder.exe.config
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Release\Taskbar Folder.exe.manifest
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Release\Taskbar Folder.application
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Release\Taskbar Folder.exe
+C:\Projects\TaskbarFolder\TaskbarFolder\bin\Release\Taskbar Folder.pdb
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.csproj.AssemblyReference.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.csproj.SuggestedBindingRedirects.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.Form1.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.Form2.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.Properties.Resources.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.SettingsForm.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.csproj.GenerateResource.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\TaskbarFolder.csproj.CoreCompileInputs.cache
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\Taskbar Folder.exe.manifest
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\Taskbar Folder.application
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\Taskbar Folder.exe
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Release\Taskbar Folder.pdb

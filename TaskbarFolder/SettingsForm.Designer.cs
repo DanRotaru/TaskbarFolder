@@ -67,6 +67,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxPadding3 = new System.Windows.Forms.Panel();
+            this.heart_icon = new System.Windows.Forms.Label();
+            this.label_by = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).BeginInit();
             this.panel2.SuspendLayout();
@@ -107,9 +109,9 @@
             this.form_message2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.form_message2.Location = new System.Drawing.Point(19, 132);
             this.form_message2.Name = "form_message2";
-            this.form_message2.Size = new System.Drawing.Size(137, 25);
+            this.form_message2.Size = new System.Drawing.Size(95, 25);
             this.form_message2.TabIndex = 2;
-            this.form_message2.Text = "Made with ♥ by";
+            this.form_message2.Text = "Made with";
             // 
             // form_link
             // 
@@ -117,7 +119,7 @@
             this.form_link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.form_link.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.form_link.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.form_link.Location = new System.Drawing.Point(149, 132);
+            this.form_link.Location = new System.Drawing.Point(152, 132);
             this.form_link.Name = "form_link";
             this.form_link.Size = new System.Drawing.Size(101, 25);
             this.form_link.TabIndex = 3;
@@ -527,12 +529,36 @@
             this.textBoxPadding3.Size = new System.Drawing.Size(100, 37);
             this.textBoxPadding3.TabIndex = 14;
             // 
+            // heart_icon
+            // 
+            this.heart_icon.AutoSize = true;
+            this.heart_icon.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heart_icon.ForeColor = System.Drawing.Color.Red;
+            this.heart_icon.Location = new System.Drawing.Point(108, 132);
+            this.heart_icon.Name = "heart_icon";
+            this.heart_icon.Size = new System.Drawing.Size(24, 25);
+            this.heart_icon.TabIndex = 17;
+            this.heart_icon.Text = "♥";
+            // 
+            // label_by
+            // 
+            this.label_by.AutoSize = true;
+            this.label_by.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_by.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label_by.Location = new System.Drawing.Point(125, 132);
+            this.label_by.Name = "label_by";
+            this.label_by.Size = new System.Drawing.Size(32, 25);
+            this.label_by.TabIndex = 18;
+            this.label_by.Text = "by";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(422, 746);
+            this.Controls.Add(this.label_by);
+            this.Controls.Add(this.heart_icon);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.form_menu_msg);
             this.Controls.Add(this.panel4);
@@ -611,5 +637,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel textBoxPadding3;
+        private System.Windows.Forms.Label heart_icon;
+        private System.Windows.Forms.Label label_by;
     }
 }
