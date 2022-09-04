@@ -77,19 +77,21 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="AddForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="AddForm.Designer.cs">
+      <DependentUpon>AddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IniFile.cs" />
     <Compile Include="Program.cs" />
@@ -106,11 +108,11 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="AddForm.resx">
+      <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -137,10 +139,13 @@
   <ItemGroup>
     <Content Include="app_icon.ico" />
     <None Include="Resources\upload.png" />
-    <None Include="Resources\uploadC.png" />
-    <None Include="Resources\uploadB.png" />
-    <None Include="Resources\uploadA.png" />
-    <None Include="Resources\upload.jpg" />
+    <None Include="Resources\gridLight.png" />
+    <None Include="Resources\grid.png" />
+    <None Include="Resources\github.png" />
+    <None Include="Resources\closeSettingsHoverLight.png" />
+    <None Include="Resources\closeSettingsHover.png" />
+    <None Include="Resources\closeSettings.png" />
+    <None Include="Resources\closeSettingsLight.png" />
     <None Include="Resources\webLight.png" />
     <None Include="Resources\web.png" />
     <None Include="Resources\themeLight.png" />

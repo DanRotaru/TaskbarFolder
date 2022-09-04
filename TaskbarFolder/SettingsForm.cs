@@ -1,55 +1,60 @@
 ﻿using System;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace TaskbarFolder
 {
     public partial class SettingsForm : Form
     {
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
+        private static readonly Helpers helpers = new Helpers();
+        private static readonly IniFile ini = Main.ini;
 
-        public static IniFile ini = new IniFile("TaskbarFolder.ini");
+        private bool 
+            fromForm1 = true,
+            mouseDown = false,
+            
+            lightTheme = ini.Read("theme").Equals("light");
 
-        private bool fromForm1 = true;
-        public static bool lightTheme = ini.Read("theme").Equals("light");
+        private Point lastLocation;
 
         public SettingsForm()
         {
             InitializeComponent();
-            
+
             ChangeTheme(lightTheme);
 
-            if (IsTrue(Form1.min))
+            // Form shadow & border
+            helpers.ApplyShadows(this);
+
+            if (IsTrue(Main.min))
             {
                 minimalView.Checked = true;
             }
 
-            if (IsTrue(Form1.ontop))
+            if (IsTrue(Main.ontop))
             {
                 onTopCheck.Checked = true;
             }
 
-            if (IsTrue(Form1.save_location))
+            if (IsTrue(Main.save_location))
             {
                 saveLocationCheck.Checked = true;
-                location_x_val.Text = Form1.location_x;
-                location_y_val.Text = Form1.location_y;
+                location_x_val.Text = Main.location_x;
+                location_y_val.Text = Main.location_y;
                 location_x_val.Enabled = true;
                 location_y_val.Enabled = true;
             }
 
-            if (Form1.useColumns)
+            if (Main.useRows)
             {
-                useColumnsIndex.Checked = true;
-                columns.Text = Form1.columns.ToString();
-                columns.Enabled = true;
+                useRowsIndex.Checked = true;
+                rows.Text = Main.rows.ToString();
+                rows.Enabled = true;
             }
 
-            RoundCorners(textBoxPadding1);
-            RoundCorners(textBoxPadding2);
-            RoundCorners(textBoxPadding3);
+            helpers.RoundCorners(textBoxPadding1);
+            helpers.RoundCorners(textBoxPadding2);
+            helpers.RoundCorners(textBoxPadding3);
         }
 
         public void ChangeTheme(bool lightTheme)
@@ -58,6 +63,7 @@ namespace TaskbarFolder
             {
                 themeLight.Checked = true;
                 themeDark.Checked = false;
+                lightTheme = true;
 
                 //BackColor = Color.FromArgb(242, 243, 247);
                 BackColor = Color.FromArgb(249, 249, 249);
@@ -66,16 +72,25 @@ namespace TaskbarFolder
                 minimalViewIcon.Image = Properties.Resources.minimalViewLight;
                 onTopIcon.Image = Properties.Resources.ontopLight;
                 locationIcon.Image = Properties.Resources.locationLight;
+                gridView.Image = Properties.Resources.gridLight;
+                settingsClose.Image = Properties.Resources.closeSettingsLight;
 
                 ControlsForeach(Color.Black, Color.FromArgb(230, 230, 230), Color.FromArgb(249, 249, 249));
                 form_link.ForeColor = Color.Black;
-                Form1.lightTheme = true;
+                Main.lightTheme = true;
+
+                foreach (Form f in Application.OpenForms)
+                    f.BackColor = Color.FromArgb(249, 249, 249);
+
+                addBtn.BackColor = Color.FromArgb(220, 220, 220);
+                addBtnText.ForeColor = Color.Black;
             }
 
             else
             {
                 themeLight.Checked = false;
                 themeDark.Checked = true;
+                lightTheme = false;
 
                 BackColor = Color.FromArgb(32, 32, 32);
 
@@ -83,10 +98,20 @@ namespace TaskbarFolder
                 minimalViewIcon.Image = Properties.Resources.minimalView;
                 onTopIcon.Image = Properties.Resources.ontop;
                 locationIcon.Image = Properties.Resources.location;
+                gridView.Image = Properties.Resources.grid;
+                settingsClose.Image = Properties.Resources.closeSettings;
 
                 ControlsForeach(Color.FromArgb(200, 200, 200), Color.FromArgb(43, 43, 43), Color.FromArgb(32, 32, 32));
+                form_title.ForeColor = Color.White;
+                form_menu.ForeColor = Color.White;
                 form_link.ForeColor = Color.FromArgb(153, 235, 255);
-                Form1.lightTheme = false;
+                Main.lightTheme = false;
+
+                foreach (Form f in Application.OpenForms)
+                    f.BackColor = Color.FromArgb(32, 32, 32);
+
+                addBtn.BackColor = Color.FromArgb(55, 55, 55);
+                addBtnText.ForeColor = Color.White;
             }
 
             heart_icon.ForeColor = Color.Red;
@@ -100,7 +125,7 @@ namespace TaskbarFolder
             {
                 if (c is Panel)
                 {
-                    RoundCorners(c);
+                    helpers.RoundCorners(c);
 
                     c.BackColor = panelColor;
 
@@ -113,7 +138,7 @@ namespace TaskbarFolder
                         else if (label is TextBox || label is Panel)
                         {
                             if (label is Panel)
-                                RoundCorners(label);
+                                helpers.RoundCorners(label);
 
                             label.BackColor = FormColor;
                             label.ForeColor = labelColor;
@@ -135,10 +160,6 @@ namespace TaskbarFolder
         private void SettingsForm_Load(object sender, EventArgs e)
         {
             fromForm1 = false;
-        }
-        public void RoundCorners(Control el, int radius = 10)
-        {
-            el.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, el.Width, el.Height, radius, radius));
         }
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -182,10 +203,10 @@ namespace TaskbarFolder
                 ini.Write("save_location", "true");
                 ini.Write("location_x", location_x_val.Text);
                 ini.Write("location_y", location_y_val.Text);
-                Form1.save_location = "true";
-                Form1.location_x = location_x_val.Text;
-                Form1.location_y = location_y_val.Text;
-                Form1.locationChanged = "";
+                Main.save_location = "true";
+                Main.location_x = location_x_val.Text;
+                Main.location_y = location_y_val.Text;
+                Main.locationChanged = "";
             }
 
             else
@@ -193,8 +214,8 @@ namespace TaskbarFolder
                 location_x_val.Enabled = false;
                 location_y_val.Enabled = false;
                 ini.Write("save_location", "false");
-                Form1.save_location = "false";
-                Form1.locationChanged = "true";
+                Main.save_location = "false";
+                Main.locationChanged = "true";
 
             }
         }
@@ -204,7 +225,7 @@ namespace TaskbarFolder
             if (fromForm1) return;
 
             ini.Write("location_x", location_x_val.Text);
-            Form1.location_x = location_x_val.Text;
+            Main.location_x = location_x_val.Text;
         }
 
         private void location_y_val_TextChanged(object sender, EventArgs e)
@@ -212,7 +233,7 @@ namespace TaskbarFolder
             if (fromForm1) return;
 
             ini.Write("location_y", location_y_val.Text);
-            Form1.location_y = location_y_val.Text;
+            Main.location_y = location_y_val.Text;
         }
 
         private void themeLight_Click(object sender, EventArgs e)
@@ -239,21 +260,79 @@ namespace TaskbarFolder
                 return false;
         }
 
-        private void columns_TextChanged(object sender, EventArgs e)
+        private void settingsClose_Click(object sender, EventArgs e)
         {
-            if (fromForm1) return;
+            Close();
+        }
 
-            if (useColumnsIndex.Checked)
+        private void settingsClose_MouseEnter(object sender, EventArgs e)
+        {
+            _ = lightTheme
+                    ? settingsClose.Image = Properties.Resources.closeSettingsHoverLight
+                    : settingsClose.Image = Properties.Resources.closeSettingsHover;
+        }
+
+        private void settingsClose_MouseLeave(object sender, EventArgs e)
+        {
+            _ = lightTheme
+                    ? settingsClose.Image = Properties.Resources.closeSettingsLight
+                    : settingsClose.Image = Properties.Resources.closeSettings;
+        }
+
+        private void github_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/DanRotaru/TaskbarFolder");
+        }
+
+        private void SettingsForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void rows_TextChanged(object sender, EventArgs e)
+        {
+            if (fromForm1) 
+                return;
+
+            if (useRowsIndex.Checked)
             {
-                columns.Enabled = true;
-                ini.Write("columns", columns.Text);
+                rows.Enabled = true;
+                ini.Write("rows", rows.Text);
             }
 
             else
             {
-                columns.Enabled = false;
-                ini.Write("columns", "0");
+                rows.Enabled = false;
+                ini.Write("rows", "0");
             }
+        }
+
+        private void SettingsForm_Load_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            
+            AddForm form = new AddForm();
+            form.Show();
+            this.Close();
+        }
+
+        private void SettingsForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                Location = new Point(Location.X - lastLocation.X + e.X, (Location.Y - lastLocation.Y) + e.Y);
+                Update();
+            }
+        }
+
+        private void SettingsForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }

@@ -39,46 +39,53 @@
             this.themeLight = new System.Windows.Forms.RadioButton();
             this.themeDark = new System.Windows.Forms.RadioButton();
             this.form_settings_theme = new System.Windows.Forms.Label();
-            this.themeIcon = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.minimalView = new System.Windows.Forms.CheckBox();
             this.form_settings_view1 = new System.Windows.Forms.Label();
             this.form_settings_view = new System.Windows.Forms.Label();
-            this.minimalViewIcon = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.onTopCheck = new System.Windows.Forms.CheckBox();
             this.form_settings_ontop1 = new System.Windows.Forms.Label();
             this.form_settings_ontop = new System.Windows.Forms.Label();
-            this.onTopIcon = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.location_y_val = new System.Windows.Forms.TextBox();
             this.location_x_val = new System.Windows.Forms.TextBox();
             this.saveLocationCheck = new System.Windows.Forms.CheckBox();
             this.form_settings_location1 = new System.Windows.Forms.Label();
             this.form_settings_location = new System.Windows.Forms.Label();
-            this.locationIcon = new System.Windows.Forms.PictureBox();
             this.textBoxPadding1 = new System.Windows.Forms.Panel();
             this.textBoxPadding2 = new System.Windows.Forms.Panel();
             this.form_menu_msg = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.columns = new System.Windows.Forms.TextBox();
-            this.useColumnsIndex = new System.Windows.Forms.CheckBox();
+            this.rows = new System.Windows.Forms.TextBox();
+            this.useRowsIndex = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxPadding3 = new System.Windows.Forms.Panel();
             this.heart_icon = new System.Windows.Forms.Label();
             this.label_by = new System.Windows.Forms.Label();
+            this.github = new System.Windows.Forms.PictureBox();
+            this.settingsClose = new System.Windows.Forms.PictureBox();
+            this.gridView = new System.Windows.Forms.PictureBox();
+            this.locationIcon = new System.Windows.Forms.PictureBox();
+            this.onTopIcon = new System.Windows.Forms.PictureBox();
+            this.minimalViewIcon = new System.Windows.Forms.PictureBox();
+            this.themeIcon = new System.Windows.Forms.PictureBox();
+            this.addBtn = new System.Windows.Forms.Panel();
+            this.addBtnText = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.github)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).BeginInit();
+            this.addBtn.SuspendLayout();
             this.SuspendLayout();
             // 
             // form_title
@@ -96,7 +103,7 @@
             // 
             this.form_message.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.form_message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.form_message.Location = new System.Drawing.Point(19, 82);
+            this.form_message.Location = new System.Drawing.Point(17, 82);
             this.form_message.Name = "form_message";
             this.form_message.Size = new System.Drawing.Size(383, 50);
             this.form_message.TabIndex = 1;
@@ -107,7 +114,7 @@
             this.form_message2.AutoSize = true;
             this.form_message2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.form_message2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.form_message2.Location = new System.Drawing.Point(19, 132);
+            this.form_message2.Location = new System.Drawing.Point(16, 132);
             this.form_message2.Name = "form_message2";
             this.form_message2.Size = new System.Drawing.Size(95, 25);
             this.form_message2.TabIndex = 2;
@@ -119,7 +126,7 @@
             this.form_link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.form_link.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.form_link.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.form_link.Location = new System.Drawing.Point(152, 132);
+            this.form_link.Location = new System.Drawing.Point(150, 132);
             this.form_link.Name = "form_link";
             this.form_link.Size = new System.Drawing.Size(101, 25);
             this.form_link.TabIndex = 3;
@@ -131,7 +138,7 @@
             this.form_menu.AutoSize = true;
             this.form_menu.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.form_menu.ForeColor = System.Drawing.Color.White;
-            this.form_menu.Location = new System.Drawing.Point(19, 169);
+            this.form_menu.Location = new System.Drawing.Point(17, 169);
             this.form_menu.Name = "form_menu";
             this.form_menu.Size = new System.Drawing.Size(225, 25);
             this.form_menu.TabIndex = 4;
@@ -145,9 +152,9 @@
             this.panel1.Controls.Add(this.themeDark);
             this.panel1.Controls.Add(this.form_settings_theme);
             this.panel1.Controls.Add(this.themeIcon);
-            this.panel1.Location = new System.Drawing.Point(24, 227);
+            this.panel1.Location = new System.Drawing.Point(20, 227);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 80);
+            this.panel1.Size = new System.Drawing.Size(382, 80);
             this.panel1.TabIndex = 5;
             // 
             // form_settings_theme1
@@ -200,16 +207,6 @@
             this.form_settings_theme.TabIndex = 7;
             this.form_settings_theme.Text = "App theme";
             // 
-            // themeIcon
-            // 
-            this.themeIcon.Image = ((System.Drawing.Image)(resources.GetObject("themeIcon.Image")));
-            this.themeIcon.Location = new System.Drawing.Point(15, 20);
-            this.themeIcon.Name = "themeIcon";
-            this.themeIcon.Size = new System.Drawing.Size(35, 35);
-            this.themeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.themeIcon.TabIndex = 6;
-            this.themeIcon.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -217,9 +214,9 @@
             this.panel2.Controls.Add(this.form_settings_view1);
             this.panel2.Controls.Add(this.form_settings_view);
             this.panel2.Controls.Add(this.minimalViewIcon);
-            this.panel2.Location = new System.Drawing.Point(24, 313);
+            this.panel2.Location = new System.Drawing.Point(20, 313);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(378, 80);
+            this.panel2.Size = new System.Drawing.Size(382, 80);
             this.panel2.TabIndex = 7;
             // 
             // minimalView
@@ -257,16 +254,6 @@
             this.form_settings_view.TabIndex = 7;
             this.form_settings_view.Text = "Minimal view";
             // 
-            // minimalViewIcon
-            // 
-            this.minimalViewIcon.Image = ((System.Drawing.Image)(resources.GetObject("minimalViewIcon.Image")));
-            this.minimalViewIcon.Location = new System.Drawing.Point(15, 20);
-            this.minimalViewIcon.Name = "minimalViewIcon";
-            this.minimalViewIcon.Size = new System.Drawing.Size(35, 35);
-            this.minimalViewIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.minimalViewIcon.TabIndex = 6;
-            this.minimalViewIcon.TabStop = false;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -274,9 +261,9 @@
             this.panel3.Controls.Add(this.form_settings_ontop1);
             this.panel3.Controls.Add(this.form_settings_ontop);
             this.panel3.Controls.Add(this.onTopIcon);
-            this.panel3.Location = new System.Drawing.Point(24, 399);
+            this.panel3.Location = new System.Drawing.Point(20, 399);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(378, 80);
+            this.panel3.Size = new System.Drawing.Size(382, 80);
             this.panel3.TabIndex = 12;
             // 
             // onTopCheck
@@ -314,16 +301,6 @@
             this.form_settings_ontop.TabIndex = 7;
             this.form_settings_ontop.Text = "Stay on top";
             // 
-            // onTopIcon
-            // 
-            this.onTopIcon.Image = ((System.Drawing.Image)(resources.GetObject("onTopIcon.Image")));
-            this.onTopIcon.Location = new System.Drawing.Point(15, 20);
-            this.onTopIcon.Name = "onTopIcon";
-            this.onTopIcon.Size = new System.Drawing.Size(35, 35);
-            this.onTopIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.onTopIcon.TabIndex = 6;
-            this.onTopIcon.TabStop = false;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -335,9 +312,9 @@
             this.panel4.Controls.Add(this.locationIcon);
             this.panel4.Controls.Add(this.textBoxPadding1);
             this.panel4.Controls.Add(this.textBoxPadding2);
-            this.panel4.Location = new System.Drawing.Point(24, 485);
+            this.panel4.Location = new System.Drawing.Point(20, 485);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(378, 121);
+            this.panel4.Size = new System.Drawing.Size(382, 121);
             this.panel4.TabIndex = 13;
             // 
             // location_y_val
@@ -409,16 +386,6 @@
             this.form_settings_location.TabIndex = 7;
             this.form_settings_location.Text = "Save app location";
             // 
-            // locationIcon
-            // 
-            this.locationIcon.Image = ((System.Drawing.Image)(resources.GetObject("locationIcon.Image")));
-            this.locationIcon.Location = new System.Drawing.Point(15, 20);
-            this.locationIcon.Name = "locationIcon";
-            this.locationIcon.Size = new System.Drawing.Size(35, 35);
-            this.locationIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.locationIcon.TabIndex = 6;
-            this.locationIcon.TabStop = false;
-            // 
             // textBoxPadding1
             // 
             this.textBoxPadding1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -440,7 +407,7 @@
             this.form_menu_msg.AutoSize = true;
             this.form_menu_msg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.form_menu_msg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.form_menu_msg.Location = new System.Drawing.Point(20, 196);
+            this.form_menu_msg.Location = new System.Drawing.Point(18, 196);
             this.form_menu_msg.Name = "form_menu_msg";
             this.form_menu_msg.Size = new System.Drawing.Size(315, 20);
             this.form_menu_msg.TabIndex = 14;
@@ -449,45 +416,45 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
-            this.panel7.Controls.Add(this.columns);
-            this.panel7.Controls.Add(this.useColumnsIndex);
+            this.panel7.Controls.Add(this.rows);
+            this.panel7.Controls.Add(this.useRowsIndex);
             this.panel7.Controls.Add(this.label1);
             this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(this.pictureBox1);
+            this.panel7.Controls.Add(this.gridView);
             this.panel7.Controls.Add(this.textBoxPadding3);
-            this.panel7.Location = new System.Drawing.Point(24, 612);
+            this.panel7.Location = new System.Drawing.Point(20, 612);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(378, 99);
+            this.panel7.Size = new System.Drawing.Size(382, 99);
             this.panel7.TabIndex = 16;
             // 
-            // columns
+            // rows
             // 
-            this.columns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.columns.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.columns.Enabled = false;
-            this.columns.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.columns.ForeColor = System.Drawing.Color.White;
-            this.columns.Location = new System.Drawing.Point(279, 50);
-            this.columns.Margin = new System.Windows.Forms.Padding(5);
-            this.columns.MaxLength = 5;
-            this.columns.Name = "columns";
-            this.columns.Size = new System.Drawing.Size(70, 24);
-            this.columns.TabIndex = 12;
-            this.columns.Text = "5";
-            this.columns.TextChanged += new System.EventHandler(this.columns_TextChanged);
+            this.rows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.rows.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rows.Enabled = false;
+            this.rows.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rows.ForeColor = System.Drawing.Color.White;
+            this.rows.Location = new System.Drawing.Point(279, 50);
+            this.rows.Margin = new System.Windows.Forms.Padding(5);
+            this.rows.MaxLength = 5;
+            this.rows.Name = "rows";
+            this.rows.Size = new System.Drawing.Size(70, 24);
+            this.rows.TabIndex = 12;
+            this.rows.Text = "5";
+            this.rows.TextChanged += new System.EventHandler(this.rows_TextChanged);
             // 
-            // useColumnsIndex
+            // useRowsIndex
             // 
-            this.useColumnsIndex.AutoSize = true;
-            this.useColumnsIndex.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.useColumnsIndex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.useColumnsIndex.Location = new System.Drawing.Point(293, 12);
-            this.useColumnsIndex.Name = "useColumnsIndex";
-            this.useColumnsIndex.Size = new System.Drawing.Size(56, 27);
-            this.useColumnsIndex.TabIndex = 11;
-            this.useColumnsIndex.Text = "Yes";
-            this.useColumnsIndex.UseVisualStyleBackColor = true;
-            this.useColumnsIndex.CheckedChanged += new System.EventHandler(this.columns_TextChanged);
+            this.useRowsIndex.AutoSize = true;
+            this.useRowsIndex.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.useRowsIndex.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.useRowsIndex.Location = new System.Drawing.Point(293, 12);
+            this.useRowsIndex.Name = "useRowsIndex";
+            this.useRowsIndex.Size = new System.Drawing.Size(56, 27);
+            this.useRowsIndex.TabIndex = 11;
+            this.useRowsIndex.Text = "Yes";
+            this.useRowsIndex.UseVisualStyleBackColor = true;
+            this.useRowsIndex.CheckedChanged += new System.EventHandler(this.rows_TextChanged);
             // 
             // label1
             // 
@@ -507,19 +474,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(59, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 25);
+            this.label2.Size = new System.Drawing.Size(54, 25);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Use grid view";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TaskbarFolder.Properties.Resources.location;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.label2.Text = "Rows";
             // 
             // textBoxPadding3
             // 
@@ -534,7 +491,7 @@
             this.heart_icon.AutoSize = true;
             this.heart_icon.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.heart_icon.ForeColor = System.Drawing.Color.Red;
-            this.heart_icon.Location = new System.Drawing.Point(108, 132);
+            this.heart_icon.Location = new System.Drawing.Point(104, 132);
             this.heart_icon.Name = "heart_icon";
             this.heart_icon.Size = new System.Drawing.Size(24, 25);
             this.heart_icon.TabIndex = 17;
@@ -545,18 +502,119 @@
             this.label_by.AutoSize = true;
             this.label_by.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_by.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label_by.Location = new System.Drawing.Point(125, 132);
+            this.label_by.Location = new System.Drawing.Point(123, 132);
             this.label_by.Name = "label_by";
             this.label_by.Size = new System.Drawing.Size(32, 25);
             this.label_by.TabIndex = 18;
             this.label_by.Text = "by";
+            // 
+            // github
+            // 
+            this.github.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.github.Image = global::TaskbarFolder.Properties.Resources.github;
+            this.github.Location = new System.Drawing.Point(260, 132);
+            this.github.Name = "github";
+            this.github.Size = new System.Drawing.Size(30, 30);
+            this.github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.github.TabIndex = 20;
+            this.github.TabStop = false;
+            this.github.Click += new System.EventHandler(this.github_Click);
+            // 
+            // settingsClose
+            // 
+            this.settingsClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settingsClose.Image = ((System.Drawing.Image)(resources.GetObject("settingsClose.Image")));
+            this.settingsClose.Location = new System.Drawing.Point(368, 23);
+            this.settingsClose.Name = "settingsClose";
+            this.settingsClose.Size = new System.Drawing.Size(36, 36);
+            this.settingsClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.settingsClose.TabIndex = 19;
+            this.settingsClose.TabStop = false;
+            this.settingsClose.Click += new System.EventHandler(this.settingsClose_Click);
+            this.settingsClose.MouseEnter += new System.EventHandler(this.settingsClose_MouseEnter);
+            this.settingsClose.MouseLeave += new System.EventHandler(this.settingsClose_MouseLeave);
+            // 
+            // gridView
+            // 
+            this.gridView.Image = global::TaskbarFolder.Properties.Resources.grid;
+            this.gridView.Location = new System.Drawing.Point(15, 20);
+            this.gridView.Name = "gridView";
+            this.gridView.Size = new System.Drawing.Size(35, 35);
+            this.gridView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gridView.TabIndex = 6;
+            this.gridView.TabStop = false;
+            // 
+            // locationIcon
+            // 
+            this.locationIcon.Image = ((System.Drawing.Image)(resources.GetObject("locationIcon.Image")));
+            this.locationIcon.Location = new System.Drawing.Point(15, 20);
+            this.locationIcon.Name = "locationIcon";
+            this.locationIcon.Size = new System.Drawing.Size(35, 35);
+            this.locationIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.locationIcon.TabIndex = 6;
+            this.locationIcon.TabStop = false;
+            // 
+            // onTopIcon
+            // 
+            this.onTopIcon.Image = ((System.Drawing.Image)(resources.GetObject("onTopIcon.Image")));
+            this.onTopIcon.Location = new System.Drawing.Point(15, 20);
+            this.onTopIcon.Name = "onTopIcon";
+            this.onTopIcon.Size = new System.Drawing.Size(35, 35);
+            this.onTopIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.onTopIcon.TabIndex = 6;
+            this.onTopIcon.TabStop = false;
+            // 
+            // minimalViewIcon
+            // 
+            this.minimalViewIcon.Image = ((System.Drawing.Image)(resources.GetObject("minimalViewIcon.Image")));
+            this.minimalViewIcon.Location = new System.Drawing.Point(15, 20);
+            this.minimalViewIcon.Name = "minimalViewIcon";
+            this.minimalViewIcon.Size = new System.Drawing.Size(35, 35);
+            this.minimalViewIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.minimalViewIcon.TabIndex = 6;
+            this.minimalViewIcon.TabStop = false;
+            // 
+            // themeIcon
+            // 
+            this.themeIcon.Image = ((System.Drawing.Image)(resources.GetObject("themeIcon.Image")));
+            this.themeIcon.Location = new System.Drawing.Point(15, 20);
+            this.themeIcon.Name = "themeIcon";
+            this.themeIcon.Size = new System.Drawing.Size(35, 35);
+            this.themeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.themeIcon.TabIndex = 6;
+            this.themeIcon.TabStop = false;
+            // 
+            // addBtn
+            // 
+            this.addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.addBtn.Controls.Add(this.addBtnText);
+            this.addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addBtn.Location = new System.Drawing.Point(20, 716);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(382, 48);
+            this.addBtn.TabIndex = 21;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            // 
+            // addBtnText
+            // 
+            this.addBtnText.AutoSize = true;
+            this.addBtnText.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addBtnText.ForeColor = System.Drawing.Color.White;
+            this.addBtnText.Location = new System.Drawing.Point(151, 10);
+            this.addBtnText.Name = "addBtnText";
+            this.addBtnText.Size = new System.Drawing.Size(90, 25);
+            this.addBtnText.TabIndex = 8;
+            this.addBtnText.Text = "Add apps";
             // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(422, 746);
+            this.ClientSize = new System.Drawing.Size(422, 788);
+            this.Controls.Add(this.addBtn);
+            this.Controls.Add(this.github);
+            this.Controls.Add(this.settingsClose);
             this.Controls.Add(this.label_by);
             this.Controls.Add(this.heart_icon);
             this.Controls.Add(this.panel7);
@@ -570,28 +628,36 @@
             this.Controls.Add(this.form_message2);
             this.Controls.Add(this.form_message);
             this.Controls.Add(this.form_title);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Taskbar Folder - Settings";
+            this.Load += new System.EventHandler(this.SettingsForm_Load_1);
             this.Shown += new System.EventHandler(this.SettingsForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.github)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.settingsClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).EndInit();
+            this.addBtn.ResumeLayout(false);
+            this.addBtn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -631,13 +697,17 @@
         private System.Windows.Forms.Panel textBoxPadding2;
         private System.Windows.Forms.Label form_menu_msg;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox columns;
-        private System.Windows.Forms.CheckBox useColumnsIndex;
+        private System.Windows.Forms.TextBox rows;
+        private System.Windows.Forms.CheckBox useRowsIndex;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox gridView;
         private System.Windows.Forms.Panel textBoxPadding3;
         private System.Windows.Forms.Label heart_icon;
         private System.Windows.Forms.Label label_by;
+        private System.Windows.Forms.PictureBox settingsClose;
+        private System.Windows.Forms.PictureBox github;
+        private System.Windows.Forms.Panel addBtn;
+        private System.Windows.Forms.Label addBtnText;
     }
 }
