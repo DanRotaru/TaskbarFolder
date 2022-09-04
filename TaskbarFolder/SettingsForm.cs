@@ -57,9 +57,9 @@ namespace TaskbarFolder
             helpers.RoundCorners(textBoxPadding3);
         }
 
-        public void ChangeTheme(bool lightTheme)
+        public void ChangeTheme(bool theme)
         {
-            if (lightTheme)
+            if (theme)
             {
                 themeLight.Checked = true;
                 themeDark.Checked = false;
@@ -319,6 +319,25 @@ namespace TaskbarFolder
             AddForm form = new AddForm();
             form.Show();
             this.Close();
+        }
+
+        private void addBtn_MouseEnter(object sender, EventArgs e)
+        {
+            _ = lightTheme
+                    ? addBtn.BackColor = Color.FromArgb(210, 210, 210)
+                    : addBtn.BackColor = Color.FromArgb(55, 55, 55);
+        }
+
+        private void addBtn_MouseLeave(object sender, EventArgs e)
+        {
+            _ = lightTheme
+                    ? addBtn.BackColor = Color.FromArgb(220, 220, 220)
+                    : addBtn.BackColor = Color.FromArgb(50, 50, 50);
+        }
+
+        private void iniFile_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("TaskbarFolder.ini");
         }
 
         private void SettingsForm_MouseMove(object sender, MouseEventArgs e)

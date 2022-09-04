@@ -6,10 +6,7 @@ namespace TaskbarFolder
     internal static class Program
     {
         static readonly IniFile ini = new IniFile("TaskbarFolder.ini");
-        static int hello = 2;
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         static void Main(string[] args)
         {

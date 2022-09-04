@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_icon.ico" />
+    <None Include="Resources\ini.png" />
     <None Include="Resources\upload.png" />
     <None Include="Resources\gridLight.png" />
     <None Include="Resources\grid.png" />

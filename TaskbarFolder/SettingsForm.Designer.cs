@@ -64,6 +64,9 @@
             this.textBoxPadding3 = new System.Windows.Forms.Panel();
             this.heart_icon = new System.Windows.Forms.Label();
             this.label_by = new System.Windows.Forms.Label();
+            this.addBtn = new System.Windows.Forms.Panel();
+            this.addBtnText = new System.Windows.Forms.Label();
+            this.iniFile = new System.Windows.Forms.PictureBox();
             this.github = new System.Windows.Forms.PictureBox();
             this.settingsClose = new System.Windows.Forms.PictureBox();
             this.gridView = new System.Windows.Forms.PictureBox();
@@ -71,13 +74,13 @@
             this.onTopIcon = new System.Windows.Forms.PictureBox();
             this.minimalViewIcon = new System.Windows.Forms.PictureBox();
             this.themeIcon = new System.Windows.Forms.PictureBox();
-            this.addBtn = new System.Windows.Forms.Panel();
-            this.addBtnText = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.addBtn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iniFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.github)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
@@ -85,7 +88,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).BeginInit();
-            this.addBtn.SuspendLayout();
             this.SuspendLayout();
             // 
             // form_title
@@ -93,7 +95,7 @@
             this.form_title.AutoSize = true;
             this.form_title.Font = new System.Drawing.Font("Segoe UI Semibold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.form_title.ForeColor = System.Drawing.Color.White;
-            this.form_title.Location = new System.Drawing.Point(15, 15);
+            this.form_title.Location = new System.Drawing.Point(15, 12);
             this.form_title.Name = "form_title";
             this.form_title.Size = new System.Drawing.Size(158, 50);
             this.form_title.TabIndex = 0;
@@ -103,7 +105,7 @@
             // 
             this.form_message.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.form_message.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.form_message.Location = new System.Drawing.Point(17, 82);
+            this.form_message.Location = new System.Drawing.Point(17, 77);
             this.form_message.Name = "form_message";
             this.form_message.Size = new System.Drawing.Size(383, 50);
             this.form_message.TabIndex = 1;
@@ -114,7 +116,7 @@
             this.form_message2.AutoSize = true;
             this.form_message2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.form_message2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.form_message2.Location = new System.Drawing.Point(16, 132);
+            this.form_message2.Location = new System.Drawing.Point(16, 127);
             this.form_message2.Name = "form_message2";
             this.form_message2.Size = new System.Drawing.Size(95, 25);
             this.form_message2.TabIndex = 2;
@@ -126,7 +128,7 @@
             this.form_link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.form_link.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.form_link.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.form_link.Location = new System.Drawing.Point(150, 132);
+            this.form_link.Location = new System.Drawing.Point(150, 127);
             this.form_link.Name = "form_link";
             this.form_link.Size = new System.Drawing.Size(101, 25);
             this.form_link.TabIndex = 3;
@@ -409,9 +411,9 @@
             this.form_menu_msg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.form_menu_msg.Location = new System.Drawing.Point(18, 196);
             this.form_menu_msg.Name = "form_menu_msg";
-            this.form_menu_msg.Size = new System.Drawing.Size(315, 20);
+            this.form_menu_msg.Size = new System.Drawing.Size(332, 20);
             this.form_menu_msg.TabIndex = 14;
-            this.form_menu_msg.Text = "Settings will be applied on application restart!";
+            this.form_menu_msg.Text = "To apply some settings is required to restart app.";
             // 
             // panel7
             // 
@@ -491,7 +493,7 @@
             this.heart_icon.AutoSize = true;
             this.heart_icon.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.heart_icon.ForeColor = System.Drawing.Color.Red;
-            this.heart_icon.Location = new System.Drawing.Point(104, 132);
+            this.heart_icon.Location = new System.Drawing.Point(104, 127);
             this.heart_icon.Name = "heart_icon";
             this.heart_icon.Size = new System.Drawing.Size(24, 25);
             this.heart_icon.TabIndex = 17;
@@ -502,17 +504,55 @@
             this.label_by.AutoSize = true;
             this.label_by.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_by.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.label_by.Location = new System.Drawing.Point(123, 132);
+            this.label_by.Location = new System.Drawing.Point(123, 127);
             this.label_by.Name = "label_by";
             this.label_by.Size = new System.Drawing.Size(32, 25);
             this.label_by.TabIndex = 18;
             this.label_by.Text = "by";
             // 
+            // addBtn
+            // 
+            this.addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.addBtn.Controls.Add(this.addBtnText);
+            this.addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addBtn.Location = new System.Drawing.Point(20, 716);
+            this.addBtn.Name = "addBtn";
+            this.addBtn.Size = new System.Drawing.Size(382, 48);
+            this.addBtn.TabIndex = 21;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            this.addBtn.MouseEnter += new System.EventHandler(this.addBtn_MouseEnter);
+            this.addBtn.MouseLeave += new System.EventHandler(this.addBtn_MouseLeave);
+            // 
+            // addBtnText
+            // 
+            this.addBtnText.AutoSize = true;
+            this.addBtnText.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addBtnText.ForeColor = System.Drawing.Color.White;
+            this.addBtnText.Location = new System.Drawing.Point(151, 10);
+            this.addBtnText.Name = "addBtnText";
+            this.addBtnText.Size = new System.Drawing.Size(90, 25);
+            this.addBtnText.TabIndex = 8;
+            this.addBtnText.Text = "Add apps";
+            this.addBtnText.Click += new System.EventHandler(this.addBtn_Click);
+            this.addBtnText.MouseEnter += new System.EventHandler(this.addBtn_MouseEnter);
+            // 
+            // iniFile
+            // 
+            this.iniFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iniFile.Image = global::TaskbarFolder.Properties.Resources.ini;
+            this.iniFile.Location = new System.Drawing.Point(376, 192);
+            this.iniFile.Name = "iniFile";
+            this.iniFile.Size = new System.Drawing.Size(24, 24);
+            this.iniFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.iniFile.TabIndex = 22;
+            this.iniFile.TabStop = false;
+            this.iniFile.Click += new System.EventHandler(this.iniFile_Click);
+            // 
             // github
             // 
             this.github.Cursor = System.Windows.Forms.Cursors.Hand;
             this.github.Image = global::TaskbarFolder.Properties.Resources.github;
-            this.github.Location = new System.Drawing.Point(260, 132);
+            this.github.Location = new System.Drawing.Point(260, 127);
             this.github.Name = "github";
             this.github.Size = new System.Drawing.Size(30, 30);
             this.github.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -524,7 +564,7 @@
             // 
             this.settingsClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingsClose.Image = ((System.Drawing.Image)(resources.GetObject("settingsClose.Image")));
-            this.settingsClose.Location = new System.Drawing.Point(368, 23);
+            this.settingsClose.Location = new System.Drawing.Point(366, 20);
             this.settingsClose.Name = "settingsClose";
             this.settingsClose.Size = new System.Drawing.Size(36, 36);
             this.settingsClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -584,34 +624,13 @@
             this.themeIcon.TabIndex = 6;
             this.themeIcon.TabStop = false;
             // 
-            // addBtn
-            // 
-            this.addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.addBtn.Controls.Add(this.addBtnText);
-            this.addBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addBtn.Location = new System.Drawing.Point(20, 716);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(382, 48);
-            this.addBtn.TabIndex = 21;
-            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
-            // 
-            // addBtnText
-            // 
-            this.addBtnText.AutoSize = true;
-            this.addBtnText.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addBtnText.ForeColor = System.Drawing.Color.White;
-            this.addBtnText.Location = new System.Drawing.Point(151, 10);
-            this.addBtnText.Name = "addBtnText";
-            this.addBtnText.Size = new System.Drawing.Size(90, 25);
-            this.addBtnText.TabIndex = 8;
-            this.addBtnText.Text = "Add apps";
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(422, 788);
+            this.Controls.Add(this.iniFile);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.github);
             this.Controls.Add(this.settingsClose);
@@ -649,6 +668,9 @@
             this.panel4.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.addBtn.ResumeLayout(false);
+            this.addBtn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iniFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.github)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
@@ -656,8 +678,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).EndInit();
-            this.addBtn.ResumeLayout(false);
-            this.addBtn.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -709,5 +729,6 @@
         private System.Windows.Forms.PictureBox github;
         private System.Windows.Forms.Panel addBtn;
         private System.Windows.Forms.Label addBtnText;
+        private System.Windows.Forms.PictureBox iniFile;
     }
 }

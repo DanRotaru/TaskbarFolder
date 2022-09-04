@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Taskbar Folder.exe" size="525728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Taskbar Folder.exe" size="527264">
       <assemblyIdentity name="Taskbar Folder" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/QRLoIcFqJcoiF8TIIa15INGDdaIldN1E+Ge0Zbvu/s=</dsig:DigestValue>
+        <dsig:DigestValue>FfFvlGdGdp9ui4buhQqpnHgXuWWbc/07x3PJz9J63xk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
