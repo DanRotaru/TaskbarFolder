@@ -8,15 +8,12 @@ namespace TaskbarFolder
         static readonly IniFile ini = new IniFile("TaskbarFolder.ini");
 
         [STAThread]
-        static void Main(string[] args)
+        static void Main()
         {
-            
-            string apps_text = ini.Read("apps");
-
-            if(args.Length != 0) MessageBox.Show(args[0].ToString());
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            string apps_text = ini.Read("apps");
 
             if (string.IsNullOrEmpty(apps_text))
                 Application.Run(new AddForm());

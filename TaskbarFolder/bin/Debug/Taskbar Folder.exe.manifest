@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Taskbar Folder.exe" size="527264">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Taskbar Folder.exe" size="527776">
       <assemblyIdentity name="Taskbar Folder" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>FfFvlGdGdp9ui4buhQqpnHgXuWWbc/07x3PJz9J63xk=</dsig:DigestValue>
+        <dsig:DigestValue>vV/1BQJyMJ14BVRHKL/j7zBjl/j9oP+a18gQl/LmlHE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,31 +63,13 @@
       <dsig:DigestValue>ADVRpBPhpsxAnwKacmunAE/moOtWC4zRygAruyzsA5o=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Folder Blue.ico" size="72373">
+  <file name="Taskbar Folder.exe.config" size="233">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>YCf+O1tUQBEHoRNOSk0W/2FIujhHGeevoTkBJ9HlVBc=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="icon.ico" size="72373">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>YCf+O1tUQBEHoRNOSk0W/2FIujhHGeevoTkBJ9HlVBc=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="Taskbar Folder.exe.config" size="236">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>O0zITCCAMiinkJZsgiedceyV2U255ThvYrV6a1XXEJc=</dsig:DigestValue>
+      <dsig:DigestValue>KCC9c3LU4AHlfEIIOnqJeCcrztylKKGnaiFF6tx9ZzE=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

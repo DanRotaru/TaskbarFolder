@@ -39,20 +39,24 @@
             this.themeLight = new System.Windows.Forms.RadioButton();
             this.themeDark = new System.Windows.Forms.RadioButton();
             this.form_settings_theme = new System.Windows.Forms.Label();
+            this.themeIcon = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.minimalView = new System.Windows.Forms.CheckBox();
             this.form_settings_view1 = new System.Windows.Forms.Label();
             this.form_settings_view = new System.Windows.Forms.Label();
+            this.minimalViewIcon = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.onTopCheck = new System.Windows.Forms.CheckBox();
             this.form_settings_ontop1 = new System.Windows.Forms.Label();
             this.form_settings_ontop = new System.Windows.Forms.Label();
+            this.onTopIcon = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.location_y_val = new System.Windows.Forms.TextBox();
             this.location_x_val = new System.Windows.Forms.TextBox();
             this.saveLocationCheck = new System.Windows.Forms.CheckBox();
             this.form_settings_location1 = new System.Windows.Forms.Label();
             this.form_settings_location = new System.Windows.Forms.Label();
+            this.locationIcon = new System.Windows.Forms.PictureBox();
             this.textBoxPadding1 = new System.Windows.Forms.Panel();
             this.textBoxPadding2 = new System.Windows.Forms.Panel();
             this.form_menu_msg = new System.Windows.Forms.Label();
@@ -61,6 +65,7 @@
             this.useRowsIndex = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.gridView = new System.Windows.Forms.PictureBox();
             this.textBoxPadding3 = new System.Windows.Forms.Panel();
             this.heart_icon = new System.Windows.Forms.Label();
             this.label_by = new System.Windows.Forms.Label();
@@ -69,25 +74,20 @@
             this.iniFile = new System.Windows.Forms.PictureBox();
             this.github = new System.Windows.Forms.PictureBox();
             this.settingsClose = new System.Windows.Forms.PictureBox();
-            this.gridView = new System.Windows.Forms.PictureBox();
-            this.locationIcon = new System.Windows.Forms.PictureBox();
-            this.onTopIcon = new System.Windows.Forms.PictureBox();
-            this.minimalViewIcon = new System.Windows.Forms.PictureBox();
-            this.themeIcon = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).BeginInit();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.addBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iniFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.github)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // form_title
@@ -209,6 +209,16 @@
             this.form_settings_theme.TabIndex = 7;
             this.form_settings_theme.Text = "App theme";
             // 
+            // themeIcon
+            // 
+            this.themeIcon.Image = ((System.Drawing.Image)(resources.GetObject("themeIcon.Image")));
+            this.themeIcon.Location = new System.Drawing.Point(15, 20);
+            this.themeIcon.Name = "themeIcon";
+            this.themeIcon.Size = new System.Drawing.Size(35, 35);
+            this.themeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.themeIcon.TabIndex = 6;
+            this.themeIcon.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -256,6 +266,16 @@
             this.form_settings_view.TabIndex = 7;
             this.form_settings_view.Text = "Minimal view";
             // 
+            // minimalViewIcon
+            // 
+            this.minimalViewIcon.Image = ((System.Drawing.Image)(resources.GetObject("minimalViewIcon.Image")));
+            this.minimalViewIcon.Location = new System.Drawing.Point(15, 20);
+            this.minimalViewIcon.Name = "minimalViewIcon";
+            this.minimalViewIcon.Size = new System.Drawing.Size(35, 35);
+            this.minimalViewIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.minimalViewIcon.TabIndex = 6;
+            this.minimalViewIcon.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
@@ -302,6 +322,16 @@
             this.form_settings_ontop.Size = new System.Drawing.Size(104, 25);
             this.form_settings_ontop.TabIndex = 7;
             this.form_settings_ontop.Text = "Stay on top";
+            // 
+            // onTopIcon
+            // 
+            this.onTopIcon.Image = ((System.Drawing.Image)(resources.GetObject("onTopIcon.Image")));
+            this.onTopIcon.Location = new System.Drawing.Point(15, 20);
+            this.onTopIcon.Name = "onTopIcon";
+            this.onTopIcon.Size = new System.Drawing.Size(35, 35);
+            this.onTopIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.onTopIcon.TabIndex = 6;
+            this.onTopIcon.TabStop = false;
             // 
             // panel4
             // 
@@ -387,6 +417,16 @@
             this.form_settings_location.Size = new System.Drawing.Size(153, 25);
             this.form_settings_location.TabIndex = 7;
             this.form_settings_location.Text = "Save app location";
+            // 
+            // locationIcon
+            // 
+            this.locationIcon.Image = ((System.Drawing.Image)(resources.GetObject("locationIcon.Image")));
+            this.locationIcon.Location = new System.Drawing.Point(15, 20);
+            this.locationIcon.Name = "locationIcon";
+            this.locationIcon.Size = new System.Drawing.Size(35, 35);
+            this.locationIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.locationIcon.TabIndex = 6;
+            this.locationIcon.TabStop = false;
             // 
             // textBoxPadding1
             // 
@@ -480,6 +520,16 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Rows";
             // 
+            // gridView
+            // 
+            this.gridView.Image = global::TaskbarFolder.Properties.Resources.grid;
+            this.gridView.Location = new System.Drawing.Point(15, 20);
+            this.gridView.Name = "gridView";
+            this.gridView.Size = new System.Drawing.Size(35, 35);
+            this.gridView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gridView.TabIndex = 6;
+            this.gridView.TabStop = false;
+            // 
             // textBoxPadding3
             // 
             this.textBoxPadding3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -520,6 +570,7 @@
             this.addBtn.Size = new System.Drawing.Size(382, 48);
             this.addBtn.TabIndex = 21;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
+            this.addBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.addBtn_Paint);
             this.addBtn.MouseEnter += new System.EventHandler(this.addBtn_MouseEnter);
             this.addBtn.MouseLeave += new System.EventHandler(this.addBtn_MouseLeave);
             // 
@@ -574,56 +625,6 @@
             this.settingsClose.MouseEnter += new System.EventHandler(this.settingsClose_MouseEnter);
             this.settingsClose.MouseLeave += new System.EventHandler(this.settingsClose_MouseLeave);
             // 
-            // gridView
-            // 
-            this.gridView.Image = global::TaskbarFolder.Properties.Resources.grid;
-            this.gridView.Location = new System.Drawing.Point(15, 20);
-            this.gridView.Name = "gridView";
-            this.gridView.Size = new System.Drawing.Size(35, 35);
-            this.gridView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gridView.TabIndex = 6;
-            this.gridView.TabStop = false;
-            // 
-            // locationIcon
-            // 
-            this.locationIcon.Image = ((System.Drawing.Image)(resources.GetObject("locationIcon.Image")));
-            this.locationIcon.Location = new System.Drawing.Point(15, 20);
-            this.locationIcon.Name = "locationIcon";
-            this.locationIcon.Size = new System.Drawing.Size(35, 35);
-            this.locationIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.locationIcon.TabIndex = 6;
-            this.locationIcon.TabStop = false;
-            // 
-            // onTopIcon
-            // 
-            this.onTopIcon.Image = ((System.Drawing.Image)(resources.GetObject("onTopIcon.Image")));
-            this.onTopIcon.Location = new System.Drawing.Point(15, 20);
-            this.onTopIcon.Name = "onTopIcon";
-            this.onTopIcon.Size = new System.Drawing.Size(35, 35);
-            this.onTopIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.onTopIcon.TabIndex = 6;
-            this.onTopIcon.TabStop = false;
-            // 
-            // minimalViewIcon
-            // 
-            this.minimalViewIcon.Image = ((System.Drawing.Image)(resources.GetObject("minimalViewIcon.Image")));
-            this.minimalViewIcon.Location = new System.Drawing.Point(15, 20);
-            this.minimalViewIcon.Name = "minimalViewIcon";
-            this.minimalViewIcon.Size = new System.Drawing.Size(35, 35);
-            this.minimalViewIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.minimalViewIcon.TabIndex = 6;
-            this.minimalViewIcon.TabStop = false;
-            // 
-            // themeIcon
-            // 
-            this.themeIcon.Image = ((System.Drawing.Image)(resources.GetObject("themeIcon.Image")));
-            this.themeIcon.Location = new System.Drawing.Point(15, 20);
-            this.themeIcon.Name = "themeIcon";
-            this.themeIcon.Size = new System.Drawing.Size(35, 35);
-            this.themeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.themeIcon.TabIndex = 6;
-            this.themeIcon.TabStop = false;
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -660,24 +661,24 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SettingsForm_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.addBtn.ResumeLayout(false);
             this.addBtn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iniFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.github)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locationIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.onTopIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minimalViewIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.themeIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

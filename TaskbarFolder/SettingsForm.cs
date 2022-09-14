@@ -20,11 +20,11 @@ namespace TaskbarFolder
         public SettingsForm()
         {
             InitializeComponent();
-
-            ChangeTheme(lightTheme);
-
             // Form shadow & border
-            helpers.ApplyShadows(this);
+            Main.setTimeout(() => {
+                helpers.ApplyShadows(this);
+                ChangeTheme(lightTheme);
+            }, 200);
 
             if (IsTrue(Main.min))
             {
@@ -57,7 +57,7 @@ namespace TaskbarFolder
             helpers.RoundCorners(textBoxPadding3);
         }
 
-        public void ChangeTheme(bool theme)
+        public void ChangeTheme(bool theme, bool agresive = true)
         {
             if (theme)
             {
@@ -88,6 +88,9 @@ namespace TaskbarFolder
 
             else
             {
+                if (!agresive)
+                    return;
+
                 themeLight.Checked = false;
                 themeDark.Checked = true;
                 lightTheme = false;
@@ -315,10 +318,19 @@ namespace TaskbarFolder
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            
-            AddForm form = new AddForm();
-            form.Show();
-            this.Close();
+
+            if ((Application.OpenForms["AddForm"] as AddForm) != null)
+            {
+                Application.OpenForms["AddForm"].BringToFront();
+                //Form is already open
+                //Application.OpenForms["SettingsForm"].Close();
+            }
+            else
+            {
+                AddForm form = new AddForm();
+                form.Show();
+                Close();
+            }
         }
 
         private void addBtn_MouseEnter(object sender, EventArgs e)
@@ -338,6 +350,11 @@ namespace TaskbarFolder
         private void iniFile_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("TaskbarFolder.ini");
+        }
+
+        private void addBtn_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void SettingsForm_MouseMove(object sender, MouseEventArgs e)
