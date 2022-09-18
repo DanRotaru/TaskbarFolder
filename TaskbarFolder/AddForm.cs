@@ -30,6 +30,7 @@ namespace TaskbarFolder
                 ini.Write("theme", "dark");
                 ini.Write("min", "false");
                 ini.Write("ontop", "false");
+                ini.Write("tray", "true");
                 ini.Write("save_location", "false");
                 ini.Write("location_x", "0");
                 ini.Write("location_y", "0");

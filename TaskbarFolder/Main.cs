@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,6 +55,7 @@ namespace TaskbarFolder
             location_x,
             location_y,
             rows_text,
+            tray,
             locationChanged = "true";
 
         public string[] apps;
@@ -64,6 +67,7 @@ namespace TaskbarFolder
             // Form shadow & border
             setTimeout(() => {
                 helpers.ApplyShadows(this);
+                //helpers.RoundCorners(this);
             }, 200);
 
             theme = ini.Read("theme");
@@ -76,6 +80,7 @@ namespace TaskbarFolder
             location_y = ini.Read("location_y");
 
             rows_text = ini.Read("rows");
+            tray = ini.Read("tray");
 
             string ico = ini.Read("icon");
             if (!string.IsNullOrEmpty(ico))
@@ -122,6 +127,15 @@ namespace TaskbarFolder
             else if (IsTrue("ontop"))
                 TopMost = true;
 
+            // Stay in tray (by default true)
+            if (string.IsNullOrEmpty(tray))
+                ini.Write("tray", "true");
+
+            else if (!IsTrue("tray"))
+                ShowInTaskbar = false;
+
+            //ini.Write("#Apps list", "> Devided by ;");
+
             // Save app location
             if (string.IsNullOrEmpty(save_location))
             {
@@ -151,6 +165,20 @@ namespace TaskbarFolder
                 ini.Write("apps", "");
         }
 
+        private void tray_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right)
+            {
+                BringToFront();
+
+                if (Visible)
+                    Hide();
+                else
+                    Show();
+            }
+        }
+
+
         /*private void OnTimer(Object sender, EventArgs e)
         {
             Rectangle workingArea = Screen.GetWorkingArea(this);
@@ -168,10 +196,37 @@ namespace TaskbarFolder
                 Hide();
         }
 
+        void ShowContextClick(object sender, EventArgs e)
+        {
+            Show();
+        }
+
+        void ExitContextClick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        
+        void RestartContextClick(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             if (apps == null)
                 return;
+
+            if (IsTrue("tray"))
+            {
+                trayIcon.Visible = true;
+                trayIcon.Icon = Icon;
+
+                trayIcon.ContextMenuStrip = new ContextMenuStrip();
+                trayIcon.ContextMenuStrip.Items.Add("Show", null, ShowContextClick);
+                trayIcon.ContextMenuStrip.Items.Add("Restart", null, RestartContextClick);
+                trayIcon.ContextMenuStrip.Items.Add("Settings", null, SettingsBtn_Click);
+                trayIcon.ContextMenuStrip.Items.Add("Exit", null, ExitContextClick);
+            }
 
             // Minimalistic view
             if (IsTrue("min"))
@@ -276,7 +331,17 @@ namespace TaskbarFolder
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (IsTrue("tray"))
+                Hide();
+            else
+                Application.Exit();
+
+
+            //ShowWindow(Handle, 6);
+            //WindowState = FormWindowState.Minimized;
+            //ShowWindow(Handle, 0);
+            //Visible = false;
+            //Close();
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
@@ -305,7 +370,11 @@ namespace TaskbarFolder
             if (path.StartsWith("http") || File.Exists(path))
             {
                 System.Diagnostics.Process.Start(path);
-                Application.Exit();
+
+                if (!IsTrue("tray"))
+                    Application.Exit();
+                else
+                    Hide();
             }
 
             else
