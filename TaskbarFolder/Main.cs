@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TaskbarFolder
 {
@@ -16,7 +17,7 @@ namespace TaskbarFolder
         //public Timer timer = new Timer();
         //private int formPositionY = 0;
 
-        public static bool 
+        public static bool
             lightTheme = false,
             useRows = false;
 
@@ -44,7 +45,9 @@ namespace TaskbarFolder
             continueProgram = true;
 
         private Point lastLocation;
-        
+
+        private Form contextMenuForm;
+
         public static string
             theme,
             apps_text,
@@ -132,7 +135,7 @@ namespace TaskbarFolder
                 ini.Write("tray", "true");
 
             else if (!IsTrue("tray"))
-                ShowInTaskbar = false;
+                ShowInTaskbar = true;
 
             //ini.Write("#Apps list", "> Devided by ;");
 
@@ -170,6 +173,8 @@ namespace TaskbarFolder
             if (e.Button != MouseButtons.Right)
             {
                 BringToFront();
+                Rectangle workingArea = Screen.GetWorkingArea(this);
+                Location = new Point(Cursor.Position.X - (Size.Width / 2), workingArea.Height - Height - 10);
 
                 if (Visible)
                     Hide();
@@ -208,7 +213,53 @@ namespace TaskbarFolder
         
         void RestartContextClick(object sender, EventArgs e)
         {
-            Application.Restart();
+            Properties.Settings.Default.IsRestarting = true;
+            Close();
+        }
+
+        private bool trayIconMenuFocused = false;
+
+        private void trayIconMenuShow(object sender, MouseEventArgs e)
+        {
+            if (e.Button is MouseButtons.Right)
+            {
+                Point location = new Point(Cursor.Position.X, Cursor.Position.Y - 180 - 10);
+
+                //Form is already open
+                if ((Application.OpenForms["ContextMenuForm"] as ContextMenuForm) != null)
+                {
+                    Application.OpenForms["ContextMenuForm"].BringToFront();
+                    Application.OpenForms["ContextMenuForm"].Location = location;
+                }
+                else
+                {
+                    contextMenuForm = new ContextMenuForm();
+                    contextMenuForm.LostFocus += trayIconMenuLostFocus;
+                    
+                    setTimeout(() =>
+                    {
+                        contextMenuForm.Location = location;
+                    }, 1);
+
+                    contextMenuForm.Show();
+                }
+            }
+        }
+
+        private void trayIconMenuLostFocus(object sender, System.EventArgs e)
+        {
+            trayIconMenuFocused = !trayIconMenuFocused;
+
+            if (trayIconMenuFocused)
+            {
+                contextMenuForm.Show();
+                contextMenuForm.BringToFront();
+            }
+            else
+            {
+                contextMenuForm.Hide();
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -222,10 +273,11 @@ namespace TaskbarFolder
                 trayIcon.Icon = Icon;
 
                 trayIcon.ContextMenuStrip = new ContextMenuStrip();
-                trayIcon.ContextMenuStrip.Items.Add("Show", null, ShowContextClick);
-                trayIcon.ContextMenuStrip.Items.Add("Restart", null, RestartContextClick);
-                trayIcon.ContextMenuStrip.Items.Add("Settings", null, SettingsBtn_Click);
-                trayIcon.ContextMenuStrip.Items.Add("Exit", null, ExitContextClick);
+                trayIcon.MouseDown += trayIconMenuShow;
+                //trayIcon.ContextMenuStrip.Items.Add("Show", null, ShowContextClick);
+                //trayIcon.ContextMenuStrip.Items.Add("Restart", null, RestartContextClick);
+                //trayIcon.ContextMenuStrip.Items.Add("Settings", null, SettingsBtn_Click);
+                //trayIcon.ContextMenuStrip.Items.Add("Exit", null, ExitContextClick);
             }
 
             // Minimalistic view
@@ -240,7 +292,7 @@ namespace TaskbarFolder
 
                 panelLocation[1] = 10;
             }
-            
+
             foreach (string app in apps)
             {
                 if (!string.IsNullOrEmpty(app))
@@ -449,8 +501,33 @@ namespace TaskbarFolder
             return value.Equals("true") || value.Equals("1");
         }
 
+        private Bitmap getIcon(string icon, string app)
+        {
+            if (icon.IndexOf(".png") > -1 ||
+                icon.IndexOf(".jpg") > -1 ||
+                icon.IndexOf(".jpeg") > -1 ||
+                icon.IndexOf(".gif") > -1)
+            {
+                return (Bitmap)Image.FromFile(icon);
+            }
+            else
+            {
+                Icon ico = icon.Length > 0 ? Icon.ExtractAssociatedIcon(@icon) : Icon.ExtractAssociatedIcon(@app);
+                return ico.ToBitmap();
+            }
+        }
+
         public void AddApp(string app = "")
         {
+            string icon = "";
+            if (app.IndexOf("|") > -1)
+            {
+                string[] split = app.Split('|');
+                app = split[0];
+                icon = split[1];
+            }
+
+            //MessageBox.Show(app);
             if (File.Exists(app) || app.Contains("http"))
             {
                 if (useRows)
@@ -491,17 +568,20 @@ namespace TaskbarFolder
                     SizeMode = PictureBoxSizeMode.StretchImage
                 };
 
+                Bitmap appIcon;
                 if (app.StartsWith("http"))
                 {
-                    _ = lightTheme
-                        ? img.Image = Properties.Resources.web
-                        : img.Image = Properties.Resources.webLight;
+                    if (icon.Length > 0)
+                        appIcon = getIcon(icon, app);
+                    else
+                        _ = lightTheme
+                               ? appIcon = Properties.Resources.webLight
+                               : appIcon = Properties.Resources.web;
                 }
                 else
-                {
-                    Icon ico = Icon.ExtractAssociatedIcon(@app);
-                    img.Image = ico.ToBitmap();
-                }
+                    appIcon = getIcon(icon, app);
+
+                img.Image = appIcon;
 
                 p.Controls.Add(img);
                 appsNumber++;

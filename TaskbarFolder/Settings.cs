@@ -16,7 +16,10 @@
             // this.SettingsSaving += this.SettingsSavingEventHandler;
             //
         }
-        
+
+        public object IsRestarting { get; internal set; }
+        public bool Exiting { get; internal set; }
+
         private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {
             // Добавьте здесь код для обработки события SettingChangingEvent.
         }

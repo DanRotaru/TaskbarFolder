@@ -43,3 +43,4 @@ C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\Taskbar Folder.exe
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\Taskbar Folder.pdb
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.Main.resources
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.AddForm.resources
+C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.ContextMenuForm.resources

@@ -39,7 +39,16 @@ namespace TaskbarFolder
             if (string.IsNullOrEmpty(apps_text))
                 Application.Run(new AddForm());
             else
-                Application.Run(new Main());
+            {
+                Form main = new Main();
+                Application.Run(main);
+                
+                if (Properties.Settings.Default.IsRestarting is true)
+                    Application.Restart();
+            }
+
+            if (Properties.Settings.Default.Exiting is true)
+                Application.Exit();
         }
     }
 }

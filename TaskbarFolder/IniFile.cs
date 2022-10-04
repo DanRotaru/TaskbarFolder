@@ -23,8 +23,8 @@ namespace TaskbarFolder
 
         public string Read(string Key, string Section = null)
         {
-            var RetVal = new StringBuilder(255);
-            GetPrivateProfileString(Section ?? EXE, Key, "", RetVal, 255, Path);
+            var RetVal = new StringBuilder(10000);
+            GetPrivateProfileString(Section ?? EXE, Key, "", RetVal, 10000, Path);
             return RetVal.ToString();
         }
 
