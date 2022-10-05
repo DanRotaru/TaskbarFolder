@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using Application = System.Windows.Forms.Application;
 using Label = System.Windows.Forms.Label;
 
 namespace TaskbarFolder
@@ -16,17 +9,15 @@ namespace TaskbarFolder
     public partial class ContextMenuForm : Form
     {
         private static readonly Helpers helpers = new Helpers();
-        private static readonly IniFile ini = Main.ini;
-
-        private bool lightTheme = ini.Read("theme").Equals("light");
+        private bool lightTheme;
 
         public ContextMenuForm()
         {
             InitializeComponent();
+            ChangeTheme(Main.lightTheme);
 
             Main.setTimeout(() => {
                 helpers.ApplyShadows(this);
-                ChangeTheme(lightTheme);
             }, 200);
             
         }
@@ -36,13 +27,11 @@ namespace TaskbarFolder
 
         }
 
-        public Button addBtn;
-
         private void buttonHover(object sender, EventArgs e)
         {
             Panel btn = sender as Panel;
-            _ = lightTheme
-                    ? btn.BackColor = Color.FromArgb(210, 210, 210)
+            _ = Main.lightTheme
+                    ? btn.BackColor = Color.FromArgb(230, 230, 230)
                     : btn.BackColor = Color.FromArgb(57, 57, 57);
         }
 
@@ -50,56 +39,43 @@ namespace TaskbarFolder
         {
             Panel btn = sender as Panel;
 
-            _ = lightTheme
-                    ? btn.BackColor = Color.FromArgb(220, 220, 220)
+            _ = Main.lightTheme
+                    ? btn.BackColor = Color.FromArgb(249, 249, 249)
                     : btn.BackColor = Color.FromArgb(32, 32, 32);
         }
 
 
-        public void ChangeTheme(bool theme)
+        public void ChangeTheme(bool lightTheme)
         {
-            //ControlsForeach(Color.Black, Color.FromArgb(230, 230, 230), Color.FromArgb(249, 249, 249));
-            ControlsForeach(Color.FromArgb(200, 200, 200), Color.FromArgb(32, 32, 32), Color.FromArgb(32, 32, 32));
-
-            if (theme)
+            if (lightTheme)
             {
-                
+                lightTheme = true;
+                Main.lightTheme = true;
+                BackColor = Color.FromArgb(249, 249, 249);
+                delimiter.BackColor = Color.FromArgb(230, 230, 230);
+
+                ControlsForeach(Color.Black, Color.FromArgb(249, 249, 249));
+
+                foreach (Form f in Application.OpenForms)
+                    f.BackColor = Color.FromArgb(249, 249, 249);
             }
 
             else
             {
-                
+                lightTheme = false;
+                Main.lightTheme = false;
+                BackColor = Color.FromArgb(32, 32, 32);
+                delimiter.BackColor = Color.FromArgb(57, 57, 57);
+
+                ControlsForeach(Color.White, Color.FromArgb(32, 32, 32));
+
+                foreach (Form f in Application.OpenForms)
+                    f.BackColor = Color.FromArgb(32, 32, 32);
             }
         }
 
-        public void h(object sender, EventArgs e)
+        public void ControlsForeach(Color labelColor, Color panelColor)
         {
-            Label l = sender as Label;
-
-            foreach (Control c in Controls)
-            {
-                if (c is Panel)
-                {
-                    if (c.Tag.ToString().Equals("delimiter"))
-                        continue;
-
-                    else if (c.Tag.ToString().Equals(l.Tag.ToString()))
-                    {
-                        c.BackColor = Color.FromArgb(57, 57, 57);
-                    }
-
-                }
-            }
-        }
-        
-        private void label2_EnabledChanged(object sender, EventArgs e)
-        {
-            this.ForeColor = Color.White;
-        }
-
-        public void ControlsForeach(Color labelColor, Color panelColor, Color FormColor)
-        {
-            BackColor = FormColor;
             foreach (Control c in Controls)
             {
                 if (c is Panel)
@@ -117,42 +93,40 @@ namespace TaskbarFolder
                     {
                         if (label is Label)
                         {
-                            //label.ForeColor = Color.White;
-                            label.ForeColor = SystemColors.Control;
-                            //label.MouseHover += buttonHover;
-                            //label.MouseLeave += buttonHoverLeave;
+                            label.ForeColor = labelColor;
                         }
                     }
                 }
             }
         }
 
-        public static void setTimeout(Action action, int ms)
+        private void showBtn_Click(object sender, EventArgs e)
         {
-            Task.Delay(ms).ContinueWith((task) =>
+            if ((Application.OpenForms["Main"] as Main) != null)
             {
-                action();
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+                Application.OpenForms["Main"].BringToFront();
+                Application.OpenForms["Main"].Show();
+            }
+            else
+            {
+                Form main = new Main();
+                Rectangle workingArea = Screen.GetWorkingArea(this);
+                main.Location = new Point(workingArea.Width / 2 - 220, workingArea.Height / 2 - 397);
+                main.Show();
+            }
         }
 
-        private void btn1_Click(object sender, EventArgs e)
+        private void restartBtn_Click(object sender, EventArgs e)
         {
-            Form main = System.Windows.Forms.Application.OpenForms["Main"];
-            main.BringToFront();
-            main.Show();
+            Application.Restart();
         }
 
-        private void btn2_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Application.Restart();
-        }
-
-        private void btn3_Click(object sender, EventArgs e)
+        private void settingsBtn_Click(object sender, EventArgs e)
         {
             //Form is already open
-            if ((System.Windows.Forms.Application.OpenForms["SettingsForm"] as SettingsForm) != null)
+            if ((Application.OpenForms["SettingsForm"] as SettingsForm) != null)
             {
-                System.Windows.Forms.Application.OpenForms["SettingsForm"].BringToFront();
+                Application.OpenForms["SettingsForm"].BringToFront();
             }
             else
             {
@@ -163,11 +137,17 @@ namespace TaskbarFolder
             }
         }
 
-        private void btn4_Click(object sender, EventArgs e)
+        private void exit_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.IsRestarting = false;
             Properties.Settings.Default.Exiting = true;
-            System.Windows.Forms.Application.Exit();
+            Application.Exit();
+        }
+
+        private void ContextMenuForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!lightTheme) 
+                ChangeTheme(Main.lightTheme);
         }
     }
 }

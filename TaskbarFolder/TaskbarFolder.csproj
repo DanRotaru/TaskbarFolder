@@ -155,6 +155,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app_icon.ico" />
+    <None Include="Resources\pinLight.png" />
+    <None Include="Resources\pin.png" />
     <None Include="Resources\ini.png" />
     <None Include="Resources\upload.png" />
     <None Include="Resources\gridLight.png" />

@@ -28,64 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn1 = new System.Windows.Forms.Panel();
-            this.btn2 = new System.Windows.Forms.Panel();
-            this.btn3 = new System.Windows.Forms.Panel();
-            this.btn4 = new System.Windows.Forms.Panel();
+            this.showBtn = new System.Windows.Forms.Panel();
+            this.restartBtn = new System.Windows.Forms.Panel();
+            this.settingsBtn = new System.Windows.Forms.Panel();
+            this.exitBtn = new System.Windows.Forms.Panel();
             this.delimiter = new System.Windows.Forms.Panel();
             this.disabledLabel4 = new TaskbarFolder.DisabledLabel();
             this.disabledLabel3 = new TaskbarFolder.DisabledLabel();
             this.disabledLabel2 = new TaskbarFolder.DisabledLabel();
             this.disabledLabel1 = new TaskbarFolder.DisabledLabel();
-            this.btn1.SuspendLayout();
-            this.btn2.SuspendLayout();
-            this.btn3.SuspendLayout();
-            this.btn4.SuspendLayout();
+            this.showBtn.SuspendLayout();
+            this.restartBtn.SuspendLayout();
+            this.settingsBtn.SuspendLayout();
+            this.exitBtn.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn1
+            // showBtn
             // 
-            this.btn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btn1.Controls.Add(this.disabledLabel1);
-            this.btn1.Location = new System.Drawing.Point(10, 10);
-            this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(180, 35);
-            this.btn1.TabIndex = 0;
-            this.btn1.Tag = "btn1";
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            this.showBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.showBtn.Controls.Add(this.disabledLabel1);
+            this.showBtn.Location = new System.Drawing.Point(10, 10);
+            this.showBtn.Name = "showBtn";
+            this.showBtn.Size = new System.Drawing.Size(180, 35);
+            this.showBtn.TabIndex = 0;
+            this.showBtn.Tag = "btn1";
+            this.showBtn.Click += new System.EventHandler(this.showBtn_Click);
             // 
-            // btn2
+            // restartBtn
             // 
-            this.btn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btn2.Controls.Add(this.disabledLabel2);
-            this.btn2.Location = new System.Drawing.Point(10, 50);
-            this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(180, 35);
-            this.btn2.TabIndex = 1;
-            this.btn2.Tag = "btn2";
-            this.btn2.Click += new System.EventHandler(this.btn2_Click);
+            this.restartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.restartBtn.Controls.Add(this.disabledLabel2);
+            this.restartBtn.Location = new System.Drawing.Point(10, 50);
+            this.restartBtn.Name = "restartBtn";
+            this.restartBtn.Size = new System.Drawing.Size(180, 35);
+            this.restartBtn.TabIndex = 1;
+            this.restartBtn.Tag = "btn2";
+            this.restartBtn.Click += new System.EventHandler(this.restartBtn_Click);
             // 
-            // btn3
+            // settingsBtn
             // 
-            this.btn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btn3.Controls.Add(this.disabledLabel3);
-            this.btn3.Location = new System.Drawing.Point(10, 90);
-            this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(180, 35);
-            this.btn3.TabIndex = 1;
-            this.btn3.Tag = "btn3";
-            this.btn3.Click += new System.EventHandler(this.btn3_Click);
+            this.settingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.settingsBtn.Controls.Add(this.disabledLabel3);
+            this.settingsBtn.Location = new System.Drawing.Point(10, 90);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(180, 35);
+            this.settingsBtn.TabIndex = 1;
+            this.settingsBtn.Tag = "btn3";
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
             // 
-            // btn4
+            // exitBtn
             // 
-            this.btn4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btn4.Controls.Add(this.disabledLabel4);
-            this.btn4.Location = new System.Drawing.Point(10, 138);
-            this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(180, 35);
-            this.btn4.TabIndex = 2;
-            this.btn4.Tag = "btn4";
-            this.btn4.Click += new System.EventHandler(this.btn4_Click);
+            this.exitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.exitBtn.Controls.Add(this.disabledLabel4);
+            this.exitBtn.Location = new System.Drawing.Point(10, 138);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(180, 35);
+            this.exitBtn.TabIndex = 2;
+            this.exitBtn.Tag = "btn4";
+            this.exitBtn.Click += new System.EventHandler(this.exit_Click);
             // 
             // delimiter
             // 
@@ -151,10 +151,10 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(200, 190);
             this.Controls.Add(this.delimiter);
-            this.Controls.Add(this.btn4);
-            this.Controls.Add(this.btn3);
-            this.Controls.Add(this.btn2);
-            this.Controls.Add(this.btn1);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.settingsBtn);
+            this.Controls.Add(this.restartBtn);
+            this.Controls.Add(this.showBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ContextMenuForm";
             this.ShowIcon = false;
@@ -163,24 +163,25 @@
             this.Text = "ContextMenuForm";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.ContextMenuForm_Load);
-            this.btn1.ResumeLayout(false);
-            this.btn1.PerformLayout();
-            this.btn2.ResumeLayout(false);
-            this.btn2.PerformLayout();
-            this.btn3.ResumeLayout(false);
-            this.btn3.PerformLayout();
-            this.btn4.ResumeLayout(false);
-            this.btn4.PerformLayout();
+            this.VisibleChanged += new System.EventHandler(this.ContextMenuForm_VisibleChanged);
+            this.showBtn.ResumeLayout(false);
+            this.showBtn.PerformLayout();
+            this.restartBtn.ResumeLayout(false);
+            this.restartBtn.PerformLayout();
+            this.settingsBtn.ResumeLayout(false);
+            this.settingsBtn.PerformLayout();
+            this.exitBtn.ResumeLayout(false);
+            this.exitBtn.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel btn1;
-        private System.Windows.Forms.Panel btn2;
-        private System.Windows.Forms.Panel btn3;
-        private System.Windows.Forms.Panel btn4;
+        private System.Windows.Forms.Panel showBtn;
+        private System.Windows.Forms.Panel restartBtn;
+        private System.Windows.Forms.Panel settingsBtn;
+        private System.Windows.Forms.Panel exitBtn;
         private System.Windows.Forms.Panel delimiter;
         private DisabledLabel disabledLabel1;
         private DisabledLabel disabledLabel2;

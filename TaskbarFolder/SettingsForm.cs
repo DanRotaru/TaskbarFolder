@@ -20,10 +20,12 @@ namespace TaskbarFolder
         public SettingsForm()
         {
             InitializeComponent();
+
+            ChangeTheme(lightTheme);
+
             // Form shadow & border
             Main.setTimeout(() => {
                 helpers.ApplyShadows(this);
-                ChangeTheme(lightTheme);
             }, 200);
 
             if (IsTrue(Main.min))
@@ -52,6 +54,9 @@ namespace TaskbarFolder
                 rows.Enabled = true;
             }
 
+            if (!IsTrue(Main.tray))
+                pinToTray.Checked = false;
+
             helpers.RoundCorners(textBoxPadding1);
             helpers.RoundCorners(textBoxPadding2);
             helpers.RoundCorners(textBoxPadding3);
@@ -73,6 +78,7 @@ namespace TaskbarFolder
                 onTopIcon.Image = Properties.Resources.ontopLight;
                 locationIcon.Image = Properties.Resources.locationLight;
                 gridView.Image = Properties.Resources.gridLight;
+                pinToTrayImg.Image = Properties.Resources.pinLight;
                 settingsClose.Image = Properties.Resources.closeSettingsLight;
 
                 ControlsForeach(Color.Black, Color.FromArgb(230, 230, 230), Color.FromArgb(249, 249, 249));
@@ -102,6 +108,7 @@ namespace TaskbarFolder
                 onTopIcon.Image = Properties.Resources.ontop;
                 locationIcon.Image = Properties.Resources.location;
                 gridView.Image = Properties.Resources.grid;
+                pinToTrayImg.Image = Properties.Resources.pin;
                 settingsClose.Image = Properties.Resources.closeSettings;
 
                 ControlsForeach(Color.FromArgb(200, 200, 200), Color.FromArgb(43, 43, 43), Color.FromArgb(32, 32, 32));
@@ -308,6 +315,24 @@ namespace TaskbarFolder
             {
                 rows.Enabled = false;
                 ini.Write("rows", "0");
+            }
+        }
+
+        private void pinToTray_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fromForm1)
+                return;
+
+            if (pinToTray.Checked)
+            {
+                ini.Write("tray", "true");
+                Main.trayFromSettings = true;
+            }
+
+            else
+            {
+                ini.Write("tray", "false");
+                Main.trayFromSettings = false;
             }
         }
 

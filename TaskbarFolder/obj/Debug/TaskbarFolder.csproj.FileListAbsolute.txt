@@ -31,8 +31,6 @@ C:\Projects\TaskbarFolder\TaskbarFolder\bin\Debug\Taskbar Folder.exe
 C:\Projects\TaskbarFolder\TaskbarFolder\bin\Debug\Taskbar Folder.pdb
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.AssemblyReference.cache
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.SuggestedBindingRedirects.cache
-C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Form1.resources
-C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Form2.resources
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Properties.Resources.resources
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.SettingsForm.resources
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.GenerateResource.cache
@@ -44,3 +42,6 @@ C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\Taskbar Folder.pdb
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.Main.resources
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.AddForm.resources
 C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.ContextMenuForm.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.ContextMenuForm.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Main.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.AddForm.resources

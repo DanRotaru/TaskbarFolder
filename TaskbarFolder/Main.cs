@@ -19,7 +19,8 @@ namespace TaskbarFolder
 
         public static bool
             lightTheme = false,
-            useRows = false;
+            useRows = false,
+            trayFromSettings = false;
 
         public static int rows;
 
@@ -136,6 +137,9 @@ namespace TaskbarFolder
 
             else if (!IsTrue("tray"))
                 ShowInTaskbar = true;
+
+            else
+                trayFromSettings = true;
 
             //ini.Write("#Apps list", "> Devided by ;");
 
@@ -262,6 +266,11 @@ namespace TaskbarFolder
 
         }
 
+        public static void showTray()
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             if (apps == null)
@@ -383,17 +392,10 @@ namespace TaskbarFolder
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
-            if (IsTrue("tray"))
+            if (IsTrue(tray, true) && trayFromSettings)
                 Hide();
             else
                 Application.Exit();
-
-
-            //ShowWindow(Handle, 6);
-            //WindowState = FormWindowState.Minimized;
-            //ShowWindow(Handle, 0);
-            //Visible = false;
-            //Close();
         }
 
         private void SettingsBtn_Click(object sender, EventArgs e)
@@ -494,7 +496,7 @@ namespace TaskbarFolder
             }
         }
 
-        public bool IsTrue(string key, bool local = false)
+        public static bool IsTrue(string key, bool local = false)
         {
             string value = local ? key : ini.Read(key);
 
