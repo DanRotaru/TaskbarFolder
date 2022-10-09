@@ -85,6 +85,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFormList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFormList.Designer.cs">
+      <DependentUpon>AddFormList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContextMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddFormList.resx">
+      <DependentUpon>AddFormList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContextMenuForm.resx">
       <DependentUpon>ContextMenuForm.cs</DependentUpon>
     </EmbeddedResource>

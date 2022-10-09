@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -105,6 +106,34 @@ namespace TaskbarFolder
             };
 
             DwmExtendFrameIntoClientArea(form.Handle, ref margins);
+        }
+
+        public Bitmap getIcon(string icon, string app)
+        {
+            if (icon.IndexOf(".png") > -1 ||
+                icon.IndexOf(".jpg") > -1 ||
+                icon.IndexOf(".jpeg") > -1 ||
+                icon.IndexOf(".gif") > -1)
+            {
+                return (Bitmap)Image.FromFile(icon);
+            }
+            else
+            {
+                Icon ico = null;
+
+                if (icon.Length > 0)
+                {
+                    if (File.Exists(icon))
+                        ico = Icon.ExtractAssociatedIcon(@icon);
+                }
+                else
+                {
+                    if (File.Exists(app))
+                        ico = Icon.ExtractAssociatedIcon(@app);
+                }
+
+                return ico.ToBitmap();
+            }
         }
 
         #endregion

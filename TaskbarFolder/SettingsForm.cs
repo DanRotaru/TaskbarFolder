@@ -164,7 +164,7 @@ namespace TaskbarFolder
 
         private void me_link_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://danrotaru.github.io/");
+            System.Diagnostics.Process.Start("https://danrotaru.github.io/?utm_source=tf");
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)

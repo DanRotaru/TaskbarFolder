@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TaskbarFolder
 {
@@ -177,13 +174,20 @@ namespace TaskbarFolder
             if (e.Button != MouseButtons.Right)
             {
                 BringToFront();
-                Rectangle workingArea = Screen.GetWorkingArea(this);
-                Location = new Point(Cursor.Position.X - (Size.Width / 2), workingArea.Height - Height - 10);
+                TopMost = true;
+
+                if(!IsTrue("save_location"))
+                {
+                    Rectangle workingArea = Screen.GetWorkingArea(this);
+                    Location = new Point(Cursor.Position.X - (Size.Width / 2), workingArea.Height - Height - 10);
+                }
 
                 if (Visible)
                     Hide();
                 else
                     Show();
+
+                TopMost = false;
             }
         }
 
@@ -371,6 +375,8 @@ namespace TaskbarFolder
             if (mouseDown)
             {
                 Location = new Point(Location.X - lastLocation.X + e.X, (Location.Y - lastLocation.Y) + e.Y);
+                location_x = (Location.X - lastLocation.X + e.X).ToString();
+                location_y = ((Location.Y - lastLocation.Y) + e.Y).ToString();
                 Update();
             }
         }
@@ -435,7 +441,6 @@ namespace TaskbarFolder
             {
                 MessageBox.Show("File " + path + " not exists!", "Error!");
             }
-
         }
 
         private void PanelMouseEnter(object sender, EventArgs e)
@@ -503,22 +508,6 @@ namespace TaskbarFolder
             return value.Equals("true") || value.Equals("1");
         }
 
-        private Bitmap getIcon(string icon, string app)
-        {
-            if (icon.IndexOf(".png") > -1 ||
-                icon.IndexOf(".jpg") > -1 ||
-                icon.IndexOf(".jpeg") > -1 ||
-                icon.IndexOf(".gif") > -1)
-            {
-                return (Bitmap)Image.FromFile(icon);
-            }
-            else
-            {
-                Icon ico = icon.Length > 0 ? Icon.ExtractAssociatedIcon(@icon) : Icon.ExtractAssociatedIcon(@app);
-                return ico.ToBitmap();
-            }
-        }
-
         public void AddApp(string app = "")
         {
             string icon = "";
@@ -574,14 +563,14 @@ namespace TaskbarFolder
                 if (app.StartsWith("http"))
                 {
                     if (icon.Length > 0)
-                        appIcon = getIcon(icon, app);
+                        appIcon = helpers.getIcon(icon, app);
                     else
                         _ = lightTheme
                                ? appIcon = Properties.Resources.webLight
                                : appIcon = Properties.Resources.web;
                 }
                 else
-                    appIcon = getIcon(icon, app);
+                    appIcon = helpers.getIcon(icon, app);
 
                 img.Image = appIcon;
 

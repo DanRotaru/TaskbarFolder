@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,8 +36,19 @@
             this.form_title = new System.Windows.Forms.Label();
             this.addFormClose = new System.Windows.Forms.PictureBox();
             this.dragPanel = new System.Windows.Forms.Panel();
+            this.radioEditApps = new System.Windows.Forms.RadioButton();
+            this.radioAddApps = new System.Windows.Forms.RadioButton();
+            this.editAppsPanel = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.editAppsInfo = new TaskbarFolder.DisabledLabel();
+            this.label_by = new System.Windows.Forms.Label();
+            this.heart_icon = new System.Windows.Forms.Label();
+            this.form_link = new System.Windows.Forms.Label();
+            this.form_message2 = new System.Windows.Forms.Label();
+            this.byPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.addFormClose)).BeginInit();
             this.dragPanel.SuspendLayout();
+            this.byPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -116,12 +128,123 @@
             this.dragPanel.TabIndex = 0;
             this.dragPanel.Click += new System.EventHandler(this.selectFile);
             // 
+            // radioEditApps
+            // 
+            this.radioEditApps.AutoSize = true;
+            this.radioEditApps.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioEditApps.ForeColor = System.Drawing.Color.White;
+            this.radioEditApps.Location = new System.Drawing.Point(173, 65);
+            this.radioEditApps.Name = "radioEditApps";
+            this.radioEditApps.Size = new System.Drawing.Size(120, 27);
+            this.radioEditApps.TabIndex = 27;
+            this.radioEditApps.Text = "Edit app list";
+            this.radioEditApps.UseVisualStyleBackColor = true;
+            this.radioEditApps.CheckedChanged += new System.EventHandler(this.radioAppsCheck);
+            // 
+            // radioAddApps
+            // 
+            this.radioAddApps.AutoSize = true;
+            this.radioAddApps.Checked = true;
+            this.radioAddApps.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioAddApps.ForeColor = System.Drawing.Color.White;
+            this.radioAddApps.Location = new System.Drawing.Point(19, 65);
+            this.radioAddApps.Name = "radioAddApps";
+            this.radioAddApps.Size = new System.Drawing.Size(139, 27);
+            this.radioAddApps.TabIndex = 26;
+            this.radioAddApps.TabStop = true;
+            this.radioAddApps.Text = "Add new apps";
+            this.radioAddApps.UseVisualStyleBackColor = true;
+            // 
+            // editAppsPanel
+            // 
+            this.editAppsPanel.Location = new System.Drawing.Point(12, 105);
+            this.editAppsPanel.Name = "editAppsPanel";
+            this.editAppsPanel.Size = new System.Drawing.Size(581, 410);
+            this.editAppsPanel.TabIndex = 28;
+            // 
+            // editAppsInfo
+            // 
+            this.editAppsInfo.AutoSize = true;
+            this.editAppsInfo.Font = new System.Drawing.Font("Segoe UI Emoji", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editAppsInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.editAppsInfo.Location = new System.Drawing.Point(15, 520);
+            this.editAppsInfo.Name = "editAppsInfo";
+            this.editAppsInfo.Size = new System.Drawing.Size(270, 34);
+            this.editAppsInfo.TabIndex = 4;
+            this.editAppsInfo.Text = "ℹ️ Click on icon to select new app icon\r\nClick on app name or path to select new " +
+    "app";
+            this.editAppsInfo.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // label_by
+            // 
+            this.label_by.AutoSize = true;
+            this.label_by.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_by.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.label_by.Location = new System.Drawing.Point(113, 0);
+            this.label_by.Name = "label_by";
+            this.label_by.Size = new System.Drawing.Size(32, 25);
+            this.label_by.TabIndex = 32;
+            this.label_by.Text = "by";
+            // 
+            // heart_icon
+            // 
+            this.heart_icon.AutoSize = true;
+            this.heart_icon.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heart_icon.ForeColor = System.Drawing.Color.Red;
+            this.heart_icon.Location = new System.Drawing.Point(94, 0);
+            this.heart_icon.Name = "heart_icon";
+            this.heart_icon.Size = new System.Drawing.Size(24, 25);
+            this.heart_icon.TabIndex = 31;
+            this.heart_icon.Text = "♥";
+            // 
+            // form_link
+            // 
+            this.form_link.AutoSize = true;
+            this.form_link.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.form_link.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.form_link.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.form_link.Location = new System.Drawing.Point(140, 0);
+            this.form_link.Name = "form_link";
+            this.form_link.Size = new System.Drawing.Size(101, 25);
+            this.form_link.TabIndex = 30;
+            this.form_link.Text = "DanRotaru";
+            this.form_link.Click += new System.EventHandler(this.form_link_Click);
+            // 
+            // form_message2
+            // 
+            this.form_message2.AutoSize = true;
+            this.form_message2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.form_message2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.form_message2.Location = new System.Drawing.Point(5, 0);
+            this.form_message2.Name = "form_message2";
+            this.form_message2.Size = new System.Drawing.Size(95, 25);
+            this.form_message2.TabIndex = 29;
+            this.form_message2.Text = "Made with";
+            // 
+            // byPanel
+            // 
+            this.byPanel.Controls.Add(this.form_link);
+            this.byPanel.Controls.Add(this.heart_icon);
+            this.byPanel.Controls.Add(this.label_by);
+            this.byPanel.Controls.Add(this.form_message2);
+            this.byPanel.Location = new System.Drawing.Point(353, 525);
+            this.byPanel.Name = "byPanel";
+            this.byPanel.Size = new System.Drawing.Size(250, 28);
+            this.byPanel.TabIndex = 33;
+            this.byPanel.Visible = false;
+            // 
             // AddForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(606, 569);
+            this.Controls.Add(this.byPanel);
+            this.Controls.Add(this.editAppsInfo);
+            this.Controls.Add(this.editAppsPanel);
+            this.Controls.Add(this.radioEditApps);
+            this.Controls.Add(this.radioAddApps);
             this.Controls.Add(this.addFormClose);
             this.Controls.Add(this.form_title);
             this.Controls.Add(this.label2);
@@ -143,6 +266,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.addFormClose)).EndInit();
             this.dragPanel.ResumeLayout(false);
             this.dragPanel.PerformLayout();
+            this.byPanel.ResumeLayout(false);
+            this.byPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +280,15 @@
         private System.Windows.Forms.PictureBox addFormClose;
         private System.Windows.Forms.Label form_title;
         private System.Windows.Forms.Panel dragPanel;
+        private System.Windows.Forms.RadioButton radioEditApps;
+        private System.Windows.Forms.RadioButton radioAddApps;
+        private System.Windows.Forms.Panel editAppsPanel;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private DisabledLabel editAppsInfo;
+        private System.Windows.Forms.Label form_link;
+        private System.Windows.Forms.Label form_message2;
+        private System.Windows.Forms.Label label_by;
+        private System.Windows.Forms.Label heart_icon;
+        private System.Windows.Forms.Panel byPanel;
     }
 }

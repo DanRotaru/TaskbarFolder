@@ -37,10 +37,12 @@ namespace TaskbarFolder
             string apps_text = ini.Read("apps");
 
             if (string.IsNullOrEmpty(apps_text))
+                //Application.Run(new AddForm());
                 Application.Run(new AddForm());
             else
             {
                 Form main = new Main();
+                //Form main = new AddForm(); // to show always addForm
                 Application.Run(main);
                 
                 if (Properties.Settings.Default.IsRestarting is true)

@@ -140,7 +140,7 @@
   <data name="dragPanel.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAkQAAAHACAYAAABDKXcJAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAC69JREFUeF7t3UGrnfW1wOHTwaWDDu7kTjoXjIqgg0JEOAchERwpCIEjiIiQTCUR
+        DwAACw8BkvkDpQAAC69JREFUeF7t3UGrnfW1wOHTwaWDDu7kTjoXjIqgg0JEOAchERwpCIEjiIiQTCUR
         AyHQSSSC/SxO/Qz3I3TUWT9B57v5H979ejyullKa1u7fM3jg7LWXOsgO/tD9rpwdDod/2Pn5+ffffffd
         YXJ5efli5cfd9dreP7/36NGjce/i4uIHe/Z+KXvTznJ9x569/+Te+sxOO+szbq+z948Yh8u9e/cOn3/+
         +Ysff5z9rX/w8rIDoba3fjGnvfVrYM/eL2Vv2lmu79iz95/cW5/ZaWd9xu119t5///0/P3v27LDa5vr8
@@ -193,6 +193,12 @@
         fupw9leDP/yKLpmmygAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="byPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIAAxNAAAZgAAAICAAAABACAAKAgBAJc0AABAQAAAAQAgAChCAAC/PAEAMDAAAAEA

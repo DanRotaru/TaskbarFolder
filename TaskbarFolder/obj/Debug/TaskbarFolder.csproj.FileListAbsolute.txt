@@ -45,3 +45,4 @@ C:\Users\dan\Desktop\Taskbar-Folder-main\TaskbarFolder\obj\Debug\TaskbarFolder.C
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.ContextMenuForm.resources
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Main.resources
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.AddForm.resources
+C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.AddFormList.resources

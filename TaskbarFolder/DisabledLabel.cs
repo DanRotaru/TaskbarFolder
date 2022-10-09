@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace TaskbarFolder
 {
@@ -13,16 +8,24 @@ namespace TaskbarFolder
     {
         public DisabledLabel() { }
 
+        private TextRenderingHint _hint = TextRenderingHint.SystemDefault;
+        public TextRenderingHint TextRenderingHint
+        {
+            get { return this._hint; }
+            set { this._hint = value; }
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             if (Enabled)
             {
                 //use normal realization
+                e.Graphics.TextRenderingHint = TextRenderingHint;
                 base.OnPaint(e);
                 return;
             }
             //custom drawing
-            using (Brush aBrush = new SolidBrush(this.ForeColor))
+            using (Brush aBrush = new SolidBrush(ForeColor))
             {
                 e.Graphics.DrawString(Text, Font, aBrush, ClientRectangle);
             }
