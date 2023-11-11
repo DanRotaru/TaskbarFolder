@@ -320,7 +320,7 @@ namespace TaskbarFolder
 
             Panel appPanel = new Panel
             {
-                Size = new Size(581, 64),
+                Size = new Size(655, 64),
                 Tag = appLocation,
                 BackColor = Color.FromArgb(43, 43, 43)
             };
@@ -338,7 +338,7 @@ namespace TaskbarFolder
             {
                 AutoSize = false,
                 Enabled = false,
-                Size = new Size(300, 20),
+                Size = new Size(500, 20),
                 Location = new Point(64, 12),
                 AutoEllipsis = true,
                 Font = new Font("Segoe UI Semibold", 9F),
@@ -351,7 +351,7 @@ namespace TaskbarFolder
             {
                 AutoSize = false,
                 Enabled = false,
-                Size = new Size(435, 20),
+                Size = new Size(500, 20),
                 AutoEllipsis = true,
                 Location = new Point(64, 32),
                 Font = new Font("Segoe UI", 7.8F),
@@ -401,7 +401,7 @@ namespace TaskbarFolder
                 Image = lightTheme ? Properties.Resources.closeSettingsLight
                     : addFormClose.Image = Properties.Resources.closeSettings,
 
-                Location = new Point(540, 20),
+                Location = new Point(615, 20),
                 Size = new Size(25, 25),
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
@@ -464,6 +464,11 @@ namespace TaskbarFolder
         private void form_link_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://danrotaru.github.io/?utm_source=tf");
+        }
+
+        private void radioAddApps_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         private string[] replaceStringElement(string search, string replace)

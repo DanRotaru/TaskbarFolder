@@ -31,6 +31,9 @@ namespace TaskbarFolder
                 return; // don't continue to run your application.
             }
 
+            if (Environment.OSVersion.Version.Major >= 6)
+                SetProcessDPIAware();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -52,5 +55,10 @@ namespace TaskbarFolder
             if (Properties.Settings.Default.Exiting is true)
                 Application.Exit();
         }
+
+
+        [DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
+
     }
 }

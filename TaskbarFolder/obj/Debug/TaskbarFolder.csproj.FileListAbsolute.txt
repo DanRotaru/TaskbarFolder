@@ -46,3 +46,20 @@ C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.ContextMenuForm.
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.Main.resources
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.AddForm.resources
 C:\Projects\TaskbarFolder\TaskbarFolder\obj\Debug\TaskbarFolder.AddFormList.resources
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.AssemblyReference.cache
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.ContextMenuForm.resources
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.Main.resources
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.AddForm.resources
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.Properties.Resources.resources
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.SettingsForm.resources
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.GenerateResource.cache
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\TaskbarFolder.csproj.CoreCompileInputs.cache
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\Taskbar Folder.exe
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\Taskbar Folder.pdb
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\bin\Debug\Taskbar Folder.exe.config
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\bin\Debug\Taskbar Folder.exe.manifest
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\bin\Debug\Taskbar Folder.application
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\bin\Debug\Taskbar Folder.exe
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\bin\Debug\Taskbar Folder.pdb
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\Taskbar Folder.exe.manifest
+C:\Users\dan\Desktop\TaskbarFolder-master\TaskbarFolder\obj\Debug\Taskbar Folder.application

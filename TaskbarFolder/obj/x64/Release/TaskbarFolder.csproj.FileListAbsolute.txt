@@ -1,0 +1,17 @@
+E:\projects\TaskbarFolder-master\TaskbarFolder\bin\x64\Release\Taskbar Folder.exe.config
+E:\projects\TaskbarFolder-master\TaskbarFolder\bin\x64\Release\Taskbar Folder.exe.manifest
+E:\projects\TaskbarFolder-master\TaskbarFolder\bin\x64\Release\Taskbar Folder.application
+E:\projects\TaskbarFolder-master\TaskbarFolder\bin\x64\Release\Taskbar Folder.exe
+E:\projects\TaskbarFolder-master\TaskbarFolder\bin\x64\Release\Taskbar Folder.pdb
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.csproj.AssemblyReference.cache
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.ContextMenuForm.resources
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.Main.resources
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.AddForm.resources
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.Properties.Resources.resources
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.SettingsForm.resources
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.csproj.GenerateResource.cache
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\TaskbarFolder.csproj.CoreCompileInputs.cache
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\Taskbar Folder.exe.manifest
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\Taskbar Folder.application
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\Taskbar Folder.exe
+E:\projects\TaskbarFolder-master\TaskbarFolder\obj\x64\Release\Taskbar Folder.pdb

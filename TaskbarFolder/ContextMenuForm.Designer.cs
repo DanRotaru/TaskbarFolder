@@ -47,9 +47,10 @@
             // 
             this.showBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.showBtn.Controls.Add(this.disabledLabel1);
-            this.showBtn.Location = new System.Drawing.Point(10, 10);
+            this.showBtn.Location = new System.Drawing.Point(11, 12);
+            this.showBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.showBtn.Name = "showBtn";
-            this.showBtn.Size = new System.Drawing.Size(180, 35);
+            this.showBtn.Size = new System.Drawing.Size(202, 44);
             this.showBtn.TabIndex = 0;
             this.showBtn.Tag = "btn1";
             this.showBtn.Click += new System.EventHandler(this.showBtn_Click);
@@ -60,20 +61,22 @@
             this.disabledLabel1.Enabled = false;
             this.disabledLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.disabledLabel1.ForeColor = System.Drawing.Color.White;
-            this.disabledLabel1.Location = new System.Drawing.Point(25, 6);
+            this.disabledLabel1.Location = new System.Drawing.Point(28, 8);
             this.disabledLabel1.Name = "disabledLabel1";
-            this.disabledLabel1.Size = new System.Drawing.Size(51, 23);
+            this.disabledLabel1.Size = new System.Drawing.Size(63, 30);
             this.disabledLabel1.TabIndex = 1;
             this.disabledLabel1.Text = "Show";
             this.disabledLabel1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.disabledLabel1.Click += new System.EventHandler(this.disabledLabel1_Click);
             // 
             // restartBtn
             // 
             this.restartBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.restartBtn.Controls.Add(this.disabledLabel2);
-            this.restartBtn.Location = new System.Drawing.Point(10, 50);
+            this.restartBtn.Location = new System.Drawing.Point(11, 62);
+            this.restartBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.restartBtn.Name = "restartBtn";
-            this.restartBtn.Size = new System.Drawing.Size(180, 35);
+            this.restartBtn.Size = new System.Drawing.Size(202, 44);
             this.restartBtn.TabIndex = 1;
             this.restartBtn.Tag = "btn2";
             this.restartBtn.Click += new System.EventHandler(this.restartBtn_Click);
@@ -84,9 +87,9 @@
             this.disabledLabel2.Enabled = false;
             this.disabledLabel2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.disabledLabel2.ForeColor = System.Drawing.Color.White;
-            this.disabledLabel2.Location = new System.Drawing.Point(25, 6);
+            this.disabledLabel2.Location = new System.Drawing.Point(28, 8);
             this.disabledLabel2.Name = "disabledLabel2";
-            this.disabledLabel2.Size = new System.Drawing.Size(63, 23);
+            this.disabledLabel2.Size = new System.Drawing.Size(77, 30);
             this.disabledLabel2.TabIndex = 2;
             this.disabledLabel2.Text = "Restart";
             this.disabledLabel2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -95,9 +98,10 @@
             // 
             this.settingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.settingsBtn.Controls.Add(this.disabledLabel3);
-            this.settingsBtn.Location = new System.Drawing.Point(10, 90);
+            this.settingsBtn.Location = new System.Drawing.Point(11, 112);
+            this.settingsBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(180, 35);
+            this.settingsBtn.Size = new System.Drawing.Size(202, 44);
             this.settingsBtn.TabIndex = 1;
             this.settingsBtn.Tag = "btn3";
             this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
@@ -108,9 +112,9 @@
             this.disabledLabel3.Enabled = false;
             this.disabledLabel3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.disabledLabel3.ForeColor = System.Drawing.Color.White;
-            this.disabledLabel3.Location = new System.Drawing.Point(25, 6);
+            this.disabledLabel3.Location = new System.Drawing.Point(28, 8);
             this.disabledLabel3.Name = "disabledLabel3";
-            this.disabledLabel3.Size = new System.Drawing.Size(71, 23);
+            this.disabledLabel3.Size = new System.Drawing.Size(87, 30);
             this.disabledLabel3.TabIndex = 3;
             this.disabledLabel3.Text = "Settings";
             this.disabledLabel3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -119,9 +123,10 @@
             // 
             this.exitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.exitBtn.Controls.Add(this.disabledLabel4);
-            this.exitBtn.Location = new System.Drawing.Point(10, 138);
+            this.exitBtn.Location = new System.Drawing.Point(11, 172);
+            this.exitBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(180, 35);
+            this.exitBtn.Size = new System.Drawing.Size(202, 44);
             this.exitBtn.TabIndex = 2;
             this.exitBtn.Tag = "btn4";
             this.exitBtn.Click += new System.EventHandler(this.exit_Click);
@@ -132,9 +137,9 @@
             this.disabledLabel4.Enabled = false;
             this.disabledLabel4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
             this.disabledLabel4.ForeColor = System.Drawing.Color.White;
-            this.disabledLabel4.Location = new System.Drawing.Point(25, 6);
+            this.disabledLabel4.Location = new System.Drawing.Point(28, 8);
             this.disabledLabel4.Name = "disabledLabel4";
-            this.disabledLabel4.Size = new System.Drawing.Size(37, 23);
+            this.disabledLabel4.Size = new System.Drawing.Size(46, 30);
             this.disabledLabel4.TabIndex = 4;
             this.disabledLabel4.Text = "Exit";
             this.disabledLabel4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -142,24 +147,26 @@
             // delimiter
             // 
             this.delimiter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
-            this.delimiter.Location = new System.Drawing.Point(10, 131);
+            this.delimiter.Location = new System.Drawing.Point(11, 164);
+            this.delimiter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.delimiter.Name = "delimiter";
-            this.delimiter.Size = new System.Drawing.Size(180, 1);
+            this.delimiter.Size = new System.Drawing.Size(202, 1);
             this.delimiter.TabIndex = 3;
             this.delimiter.Tag = "delimiter";
             // 
             // ContextMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.ClientSize = new System.Drawing.Size(200, 185);
+            this.ClientSize = new System.Drawing.Size(225, 231);
             this.Controls.Add(this.delimiter);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.settingsBtn);
             this.Controls.Add(this.restartBtn);
             this.Controls.Add(this.showBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ContextMenuForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

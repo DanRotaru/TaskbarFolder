@@ -149,5 +149,10 @@ namespace TaskbarFolder
             if (!lightTheme) 
                 ChangeTheme(Main.lightTheme);
         }
+
+        private void disabledLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

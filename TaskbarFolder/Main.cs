@@ -21,7 +21,7 @@ namespace TaskbarFolder
 
         public static int rows;
 
-        private int 
+        private int
             formHeight = 130,
             panelLocationX = 10,
             appsNumber = 0,
@@ -29,7 +29,7 @@ namespace TaskbarFolder
             rowIndex = 0,
             newRowIndex = 0;
 
-        private readonly int 
+        private readonly int
             panelSize = 80,
             imageLocation = 22,
             imageSize = 36,
@@ -38,8 +38,8 @@ namespace TaskbarFolder
         private int[] panelLocation = { 85, 40 };
 
         // Draggable form
-        private bool 
-            mouseDown, 
+        private bool
+            mouseDown,
             continueProgram = true;
 
         private Point lastLocation;
@@ -50,8 +50,8 @@ namespace TaskbarFolder
             theme,
             apps_text,
             min,
-            ontop, 
-            
+            ontop,
+
             save_location,
             location_x,
             location_y,
@@ -61,15 +61,26 @@ namespace TaskbarFolder
 
         public string[] apps;
 
+        private Timer animationTimer;
+        private int animationDuration = 100; // Adjust the animation duration as needed
+        private int initialTop;
+        private int targetTop;
+        public bool visibility = false;
+
         public Main()
         {
             InitializeComponent();
 
             // Form shadow & border
-            setTimeout(() => {
+            setTimeout(() =>
+            {
                 helpers.ApplyShadows(this);
                 //helpers.RoundCorners(this);
             }, 200);
+
+            animationTimer = new Timer();
+            animationTimer.Interval = 15;
+            animationTimer.Tick += AnimationTimer_Tick;
 
             theme = ini.Read("theme");
             apps_text = ini.Read("apps");
@@ -108,10 +119,10 @@ namespace TaskbarFolder
                 apps = apps_text.Split(';');
 
             // App theme (by default dark)
-            if (string.IsNullOrEmpty(theme)) 
+            if (string.IsNullOrEmpty(theme))
                 ini.Write("theme", "dark");
 
-            else if(theme == "light" || theme == "1")
+            else if (theme == "light" || theme == "1")
             {
                 lightTheme = true;
                 BackColor = Color.FromArgb(249, 249, 249);
@@ -169,6 +180,53 @@ namespace TaskbarFolder
                 ini.Write("apps", "");
         }
 
+        private void ShowFormWithAnimation()
+        {
+            //MessageBox.Show(initialTop.ToString());
+            targetTop = initialTop - formHeight - formHeight;
+            animationTimer.Start();
+            visibility = true;
+        }
+
+        private void HideFormWithAnimation()
+        {
+            targetTop = initialTop + formHeight;
+            animationTimer.Start();
+            visibility = false;
+        }
+
+        private void AnimationTimer_Tick(object sender, EventArgs e)
+        {
+            if (Top <= targetTop)
+            {
+                int increment = (targetTop - initialTop) / (animationDuration / animationTimer.Interval);
+                Top += increment;
+
+                if (Top >= initialTop + formHeight)
+                {
+                    animationTimer.Stop();
+                }
+            }
+            else if (Top >= targetTop)
+            {
+                int increment = (initialTop - targetTop - formHeight - 100) / (animationDuration / animationTimer.Interval);
+                Top -= increment;
+
+                if (Top <= initialTop)
+                {
+                    animationTimer.Stop();
+                }
+            }
+            else
+            {
+                animationTimer.Stop();
+                if (targetTop > initialTop && visibility)
+                {
+                    visibility = false;
+                }
+            }
+        }
+
         private void tray_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Right)
@@ -176,16 +234,18 @@ namespace TaskbarFolder
                 BringToFront();
                 TopMost = true;
 
-                if(!IsTrue("save_location"))
+                if (!IsTrue("save_location"))
                 {
                     Rectangle workingArea = Screen.GetWorkingArea(this);
                     Location = new Point(Cursor.Position.X - (Size.Width / 2), workingArea.Height - Height - 10);
                 }
 
-                if (Visible)
-                    Hide();
+                if (visibility)
+                    //Hide();
+                    HideFormWithAnimation();
                 else
-                    Show();
+                    ShowFormWithAnimation();
+                //Show();
 
                 TopMost = false;
             }
@@ -206,19 +266,21 @@ namespace TaskbarFolder
         private void Form1_Shown(object sender, EventArgs e)
         {
             if (!continueProgram)
-                Hide();
+                //Hide();
+            HideFormWithAnimation() ;
         }
 
         void ShowContextClick(object sender, EventArgs e)
         {
             Show();
+            ShowFormWithAnimation();
         }
 
         void ExitContextClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        
+
         void RestartContextClick(object sender, EventArgs e)
         {
             Properties.Settings.Default.IsRestarting = true;
@@ -231,7 +293,9 @@ namespace TaskbarFolder
         {
             if (e.Button is MouseButtons.Right)
             {
-                Point location = new Point(Cursor.Position.X, Cursor.Position.Y - 180 - 10);
+                Rectangle workingArea = Screen.GetWorkingArea(this);
+                //MessageBox.Show(workingArea.Height.ToString());
+                Point location = new Point(Cursor.Position.X, Math.Max(workingArea.Height - 230, Cursor.Position.Y - 180 - 10));
 
                 //Form is already open
                 if ((Application.OpenForms["ContextMenuForm"] as ContextMenuForm) != null)
@@ -243,7 +307,7 @@ namespace TaskbarFolder
                 {
                     contextMenuForm = new ContextMenuForm();
                     contextMenuForm.LostFocus += trayIconMenuLostFocus;
-                    
+
                     setTimeout(() =>
                     {
                         contextMenuForm.Location = location;
@@ -279,6 +343,8 @@ namespace TaskbarFolder
         {
             if (apps == null)
                 return;
+
+            //ShowFormWithAnimation();
 
             if (IsTrue("tray"))
             {
@@ -334,7 +400,7 @@ namespace TaskbarFolder
                 !string.IsNullOrEmpty(location_x) &&
                 !string.IsNullOrEmpty(location_y))
             {
-                int x = Convert.ToInt16(location_x), 
+                int x = Convert.ToInt16(location_x),
                     y = Convert.ToInt16(location_y);
 
                 Location = new Point(x, y);
@@ -342,7 +408,10 @@ namespace TaskbarFolder
             else
             {
                 Rectangle workingArea = Screen.GetWorkingArea(this);
-                Location = new Point(Cursor.Position.X - (Size.Width / 2), workingArea.Height - Height - 10);
+                initialTop = workingArea.Height - Height - 10 + formHeight;
+                //Location = new Point(Cursor.Position.X - (Size.Width / 2), initialTop);
+                // increase Y position to animate it
+                Location = new Point(Cursor.Position.X - (Size.Width / 2), initialTop * 2);
             }
 
             foreach (Control c in Controls)
@@ -399,7 +468,8 @@ namespace TaskbarFolder
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             if (IsTrue(tray, true) && trayFromSettings)
-                Hide();
+                HideFormWithAnimation();
+            //Hide();
             else
                 Application.Exit();
         }
@@ -429,17 +499,26 @@ namespace TaskbarFolder
 
             if (path.StartsWith("http") || File.Exists(path))
             {
-                System.Diagnostics.Process.Start(path);
+                try
+                {
+                    System.Diagnostics.Process.Start(path);
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("Can't open this file!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
 
                 if (!IsTrue("tray"))
                     Application.Exit();
                 else
-                    Hide();
+                    //Hide();
+                    HideFormWithAnimation();
             }
 
             else
             {
-                MessageBox.Show("File " + path + " not exists!", "Error!");
+                MessageBox.Show("File " + path + " not exists!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -451,7 +530,7 @@ namespace TaskbarFolder
                 if (lightTheme)
                 {
                     p.BackColor = Color.FromArgb(230, 230, 230);
-                } 
+                }
                 else
                 {
                     p.BackColor = Color.FromArgb(45, 45, 45);
@@ -466,7 +545,7 @@ namespace TaskbarFolder
             {
                 p.BackColor = Color.Transparent;
             }
-            
+
         }
 
         private void IconMouseEnter(object sender, EventArgs e)
